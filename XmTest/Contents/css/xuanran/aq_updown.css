@@ -1,0 +1,50 @@
+﻿#aq_updown {
+    position: fixed;
+    right: 50%;
+    margin-right: -700px;
+    top: 63%;
+    z-index: 8991;
+    /*ry*/
+    
+    -webkit-animation: dh_ffdb 2s steps(24) infinite;
+    -o-animation: dh_ffdb 2s steps(24) infinite;
+    animation: dh_ffdb 2s steps(24) infinite;
+    background: url(/Contents/images/gotop.png) no-repeat;
+    
+    /*pgy*/
+    /*background: url(/Contents/images/common/pgy.png) no-repeat;*/
+    width: 54px;
+    height: 300px;
+    transition: 1s;
+}
+    #aq_updown:hover {
+        -webkit-filter: hue-rotate(-227deg);
+        filter: hue-rotate(-227deg);
+    }/* 悬停变为青绿色滤镜动画 */
+#aq_up, #aq_imain, #aq_down {
+    width: 33px;
+    position: absolute;
+    z-index: 8994;
+    cursor: pointer;
+}
+/* png序列的关键帧动画 */
+@keyframes dh_ffdb {
+    100% {
+        background-position: -1296px 0;
+    }
+}
+#aq_imain {
+    height: 33px;
+    top: 71px;
+    left: 10px;
+}
+#aq_up {
+    height: 32px;
+    top: 37px;
+    left: 10px;
+}
+#aq_down {
+    height: 33px;
+    top: 106px;
+    left: 10px;
+}

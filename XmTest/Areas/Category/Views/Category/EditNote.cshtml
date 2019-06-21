@@ -1,0 +1,124 @@
+﻿@model XmTest.Data.Entity.Notes
+@{
+    ViewBag.Title = "编辑";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<link href="~/kindeditor/themes/qq/qq.css" rel="stylesheet" />
+<link href="~/kindeditor/themes/default/default.css" rel="stylesheet" />
+<script src="~/kindeditor/kindeditor-all-min.js"></script>
+<script src="~/kindeditor/lang/zh-CN.js"></script>
+<script src="~/kindeditor/plugins/code/prettify.js"></script>
+
+<script type="text/javascript">
+    var editor1;
+    KindEditor.ready(function (K) {
+        editor1 = K.create('#Content', {
+            cssPath: 'kindeditor/plugins/code/prettify.css',
+            allowFileManager: true,
+            afterCreate: function () {
+                var self = this;
+            }
+        });
+        prettyPrint();
+    });
+    function preSave() {
+        var html = editor1.html();
+        editor1.sync();
+        var form_data = $('#example').serializeObject();
+        var params = {
+            url: "@Url.Action("EditNote", "Category")",
+            data: { str: JSON.stringify(form_data) }
+        }
+        $.submitForm(params);
+    }
+</script>
+<style>
+    input, select {
+        width: 200px;
+        height: 25px;
+        border-radius: 5px;
+        padding-left: 2px;
+        border: 1px solid #808080;
+    }
+
+    .btn_ok {
+        width: 60px;
+        background: #ffffff;
+        height: 25px;
+    }
+
+        .btn_ok:hover {
+            background: rgba(0, 0, 0, 0.46);
+        }
+
+    .Note_Container {
+        width: 100%;
+        height: auto;
+        margin: 15px 0 15px 0;
+        border: 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+
+        .Note_Container h3 {
+            text-align: left;
+        }
+
+    .Note_Content {
+        margin: 0 auto;
+    }
+
+    .Note_block {
+        padding: 14px 0 14px 0;
+    }
+
+    .Note_left {
+        width: 128px;
+        display: inline-block;
+        padding: 3px 25px 3px 25px;
+        margin-left: 55px;
+        text-align: left;
+    }
+
+    .Note_right {
+        display: inline-block;
+        padding: 3px 25px 3px 25px;
+    }
+</style>
+
+<div class="Note_Container">
+    <form method="post" id="example" name="example">
+        <h3>文本编辑</h3>
+        <div class="Note_Content">
+            <div class="Note_block">
+                <div class="Note_left"><label>标题:</label> </div>
+                <div class="Note_right">
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <input type="text" name="Title" value="@Model.Title" />
+                </div>
+            </div>
+            <div class="Note_block">
+                <div class="Note_left"><label>类别:</label> </div>
+                <div class="Note_right">
+                    @Html.DropDownList("ClassifyID", ViewBag.Classifys as SelectList, new { @class = "", id = "ClassifyID" })
+                </div>
+            </div>
+            <div class="Note_block">
+                <div class="Note_left"><label>座右铭:</label> </div>
+                <div class="Note_right"><input type="text" name="iCon" value="@Model.Motto" /></div>
+            </div>
+            <div class="Note_block">
+                <div class="Note_left"><label>详细内容:</label> </div>
+                <div class="Note_right" style="vertical-align:top">
+                    <!--设置元素顶端对齐：提示文字位于右上方-->
+                    <textarea id="Content" name="Content" cols="100" rows="8" style="width:800px;min-height:400px;visibility:hidden;">@Model.Content</textarea>
+                </div>
+            </div>
+            <div class="Note_block">
+                <div style="margin:0 44%;">
+                    <input type="button" class="btn_ok" id="submit" value="提交" onclick="return preSave();" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

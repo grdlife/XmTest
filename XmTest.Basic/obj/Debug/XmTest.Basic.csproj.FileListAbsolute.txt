@@ -1,0 +1,6 @@
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Basic\bin\Debug\XmTest.Basic.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Basic\bin\Debug\XmTest.Basic.pdb
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Basic\bin\Debug\Newtonsoft.Json.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Basic\bin\Debug\Newtonsoft.Json.xml
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Basic\obj\Debug\XmTest.Basic.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Basic\obj\Debug\XmTest.Basic.pdb

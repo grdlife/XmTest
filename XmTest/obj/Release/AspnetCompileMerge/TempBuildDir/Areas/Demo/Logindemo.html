@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas图片滑块拖动验证码特效 - 站长素材</title>
+    <link href="../../Contents/css/jigsaw.css" rel="stylesheet" />
+    <script src="../../Contents/js/jigsaw.js"></script>
+
+    <style>
+        .container {
+            width: 310px;
+            margin: 250px auto;
+        }
+
+        input {
+            display: block;
+            width: 290px;
+            line-height: 40px;
+            margin: 10px 0;
+            padding: 0 10px;
+            outline: none;
+            border: 1px solid #c8cccf;
+            border-radius: 4px;
+            color: #6a6f77;
+        }
+
+        #msg {
+            width: 100%;
+            line-height: 40px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        a:link, a:visited, a:hover, a:active {
+            margin-left: 100px;
+            color: #0366D6;
+        }
+
+        .btn_sub {
+            float: right;
+            width: 122px;
+            height: 32px;
+            background: url(/Contents/images/site_bg.png) no-repeat -153px -850px;
+            border: none;
+            color: #FFF;
+            font-size: 15px;
+            font-weight: bold;
+            align-items: flex-start;
+            text-align: center;
+            cursor: default;
+            opacity: 0.7;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <form  autocomplete="off" onsubmit="return iSub()">
+            <!--清除文本框输入缓存提示 autocomplete="off"-->
+            <input name="Name" title="用户名" placeholder="请输入用户名" value="" />
+            <input name="pwd" type="password" placeholder="请输入密码" value="" title="密码" />
+            <div id="captcha" style="position: relative"></div>
+            <div id="msg"></div>
+            <input type="submit" class="btn_sub" value="登录" />
+        </form>
+    </div>
+    <script type="text/javascript">
+        jigsaw.init(document.getElementById('captcha'), function () {
+            document.getElementById('msg').innerHTML = '验证成功！'
+        })
+        function iSub() {
+
+            alert()
+        }
+    </script>
+</body>
+</html>

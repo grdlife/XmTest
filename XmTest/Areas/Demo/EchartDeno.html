@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="/Contents/js/jquery-3.3.1.min.js"></script>
+    <script src="/Contents/js/echarts.js"></script>
+    <script type="text/javascript">
+        //指定图标的配置和数据
+        $(document).ready(function () {
+           //var datas = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun1'];
+            var option = {
+                //color: ['#3398DB'],//当包含多条时，颜色注释，由系统自定义
+                title: {
+                    text: 'ECharts 数据统计'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {} //下载
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '4%',
+                    containLabel: true
+                },
+                legend://说明
+                    {
+                        data: ['销量', '测试']  
+                    },
+                xAxis: {
+                    type: 'category',
+                    //data: datas,
+                    boundaryGap: false,//是否以原点为起点
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    name: '访问量',
+                    type: 'line',//line 折线图 bar 柱状图
+                    //smooth: false, //是否为曲线
+                    //areaStyle: {},//是否包含面积
+                    barwidth: '10%',
+                    //data: [10, 52, 200, 334, 390, 330, 220]
+                }]
+            };
+            //初始化echarts实例
+            //console.log($("#chartmain"));
+            var testdata = [20, 42, 310, 334, 390, 90, 120]
+            var myChart = echarts.init(document.getElementById("EChart"));
+            myChart.setOption(option);
+
+            $.post("/Category/Category/GetData").done(function (data) //使用制定的配置项和数据显示图表
+            {
+                console.dir(data);
+                myChart.setOption(option);
+                // 填入数据
+                myChart.setOption({
+                    xAxis: {
+                        data: data.category
+                    },
+                    series: [{
+                        name: '销量',
+                        type: 'line',
+                        barwidth: '10%',
+                        data: data.data
+                    }, {
+                        name: '测试',
+                        type: 'line',
+                        data: testdata
+                    }]
+                });
+
+            });
+        })
+    </script>
+
+
+</head>
+<body>
+    <div id="EChart" style="width:600px; height: 400px;"></div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    @*<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>*@
+    <script src="~/Contents/js/jquery-3.3.1.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="~/favicon.ico" />
+    <link href="~/Contents/iLove.css" rel="stylesheet" />
+    <!--pgy-->
+    <script src="~/Contents/js/xuanran/pgy.js"></script>
+    <link href="~/Contents/css/Notes/pgy.css" rel="stylesheet" />
+    <!--左下 滚动js-->
+    <script src="~/Contents/js/xuanran/aq_updown.min.js"></script>
+    <script src="~/Contents/js/xuanran/ScrollTo.min.js"></script>
+    <link href="~/Contents/css/xuanran/aq_updown.css" rel="stylesheet" />
+
+    <!--重构 alert-->
+    <link href="~/Contents/js/resetalert/window.css" rel="stylesheet" />
+    <script src="~/Contents/js/resetalert/window.js"></script>
+    <style>
+        .aq_main_content {
+            height: 800px;
+            width: 100%;
+            padding-top: 20px;
+        }
+
+        .aq_main_left {
+            padding-left: calc(10% - 10px);
+            width: calc(30% - 30px);
+            height: 800px;
+            display: inline-flex;
+            float: left;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #conter {
+            width: 1000px;
+            margin: auto;
+        }
+
+        #help-left {
+            width: 200px;
+            font-family: 'microsoft YaHei';
+            float: left;
+        }
+
+        .menu {
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+
+            .menu:last-child {
+                border-bottom: 1px solid #ccc;
+            }
+
+            .menu summary {
+                height: 40px;
+                line-height: 40px;
+                text-indent: 10px;
+                outline: 0;
+                font-size: 14px;
+                font-weight: 700;
+                border-top: 1px solid #ddd;
+                background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#FEFEFE),color-stop(1,#CCC));
+                cursor: pointer;
+            }
+
+                .menu summary::-webkit-details-marker {
+                    display: none;
+                }
+
+                .menu summary:before {
+                    content: "+";
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 10px;
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+
+            .menu[open] summary:before {
+                content: "-";
+            }
+
+            .menu ul {
+                padding: 10px 0;
+            }
+
+                .menu ul li {
+                    list-style: none;
+                    text-indent: 25px;
+                    font-size: 12px;
+                    height: 30px;
+                    line-height: 30px;
+                }
+
+                    .menu ul li a {
+                        display: block;
+                        color: #666;
+                    }
+
+                        .menu ul li a:hover {
+                            text-decoration: underline;
+                        }
+        /*.aq_main_left ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+            text-align:center;
+        }
+            .aq_main_left ul li a {
+                display: block;
+                color: #000;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+             .aq_main_left ul li a:hover {
+                background-color: #555;
+                color: white;
+            }*/
+        /*.aq_main_left ul li ul li {
+                height: 20px;
+                width: 150px;
+                display: flex;
+                background: rgba(0, 255, 255, 0.37);
+            }*/
+
+        .aq_main_right {
+            padding-right: 30px;
+            width: calc(70% - 30px);
+            height: 800px;
+            display: inline-flex;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="#wrap" class="Container">
+        <div class="top">
+            <!--头部-->
+            <ul>
+                <li><a href="/Home/Index">首页</a></li>
+                <li><a href="/Category/Category/Index">分类</a></li>
+                <li><a href="/Product/Product/Index">关于</a></li>
+                <li id="li_last">
+                    @{
+                        var random = new Random();
+                        var num = random.Next(0, 2);
+                    }
+                    @if (ViewBag.user == "")
+                    {
+                        if (num > 0)
+                        {
+                            <span><a href="/Login/Index" va="@num">登录</a></span>
+                        }
+                        else
+                        {
+                            <span><a href="/Login/Index2" va="@num">登录</a></span>
+                        }
+                        <span>
+                            |<a>注册</a>
+                        </span>
+                    }
+                    else
+                    {
+                        <span>
+                            @ViewBag.user,欢迎你！|<a href="/Login/Loginout">注销</a>
+                        </span>
+                    }
+
+                </li>
+            </ul>
+        </div>
+        <!--主体-->
+        <div id="aq_main_content">
+            <div class="aq_main_left">
+                <section id="conter">
+                    <section id="help-left">
+                        <details class="menu" open>
+                            <summary>洋魔坊保障</summary>
+                            <ul>
+                                <li><a href="#">正品保障</a></li>
+                                <li><a href="#">海外直供</a></li>
+                            </ul>
+                        </details>
+                        <details class="menu" open>
+                            <summary>新手帮助</summary>
+                            <ul>
+                                <li><a href="#">申请支付宝</a></li>
+                                <li><a href="#">支付宝充值</a></li>
+                            </ul>
+                        </details>
+                        <details class="menu" open>
+                            <summary>支付方式</summary>
+                            <ul>
+                                <li><a href="#">支付宝快捷支付</a></li>
+                                <li><a href="#">支付宝余额支付</a></li>
+                                <li><a href="#">新手入门</a></li>
+                            </ul>
+                        </details>
+                        <details class="menu" open>
+                            <summary>商家支持</summary>
+                            <ul>
+                                <li><a href="#">洋魔坊规则</a></li>
+                                <li><a href="#">国际招商</a></li>
+                                <li><a href="#">服务商招募</a></li>
+                                <li><a href="#">商家系统对接</a></li>
+                                <li><a href="#">联系我们</a></li>
+                            </ul>
+                        </details>
+                    </section>
+                    <section id="help-right"></section>
+                </section>
+            </div>
+            <div class="aq_main_right">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!--右下插件 上下跳转-->
+    <div id="aq_updown">
+        <div id="aq_up"></div>
+        <div id="aq_imain"></div>
+        <div id="aq_down"></div>
+    </div>
+    <!--底部-->
+    <div id="footer" class="bottom">
+        <!--左下蒲公英-->
+        <div class="dandelion">
+            <span class="smalldan"></span>
+            <span class="bigdan"></span>
+        </div>
+        <!--版本号-->
+        <div class="bottom_lab" id="aq_bottom">
+            <label>版本@@ 2018</label>
+        </div>
+    </div>
+</body>
+</html>
+<!--版权声明：部分素材源于网上,如有侵权，请告知！-->

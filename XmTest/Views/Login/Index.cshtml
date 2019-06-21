@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "分类";
+}
+<link href="~/Contents/js/resetalert/window.css" rel="stylesheet" />
+<script src="~/Contents/js/Jquery.min.js"></script>
+<script src="~/Contents/js/resetalert/window.js"></script>
+<link href="~/Contents/css/jigsaw.css" rel="stylesheet" />
+<script src="~/Contents/js/jigsaw.js"></script>
+<script src="~/Contents/js/jquery.form.js"></script>
+<link href="../../Contents/css/xuanran/style.css" rel="stylesheet" />
+<style>
+    body {
+        background: url(/Contents/images/login/bg104.jpg) no-repeat;
+        background-size: cover;
+        opacity: 0.85;
+    }
+
+    .container {
+        width: 310px;
+        /* margin: 250px auto; */
+        opacity: 0.85;
+        position: absolute;
+        z-index: 99999;
+        top: 31%;
+        left: 44%;
+    }
+    input {
+        display: block;
+        width: 100%;
+        line-height: 40px;
+        font-size:14px;
+        outline: none;
+        border: 1px solid #c8cccf;
+        border-radius: 4px;
+        opacity: 1;
+    }
+
+    #msg {
+        width: 100%;
+        line-height: 40px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    a:link, a:visited, a:hover, a:active {
+        margin-left: 100px;
+        color: #0366D6;
+    }
+
+    .btn_sub {
+        float:right;
+        width: 122px;
+        height: 32px;
+        background: url(/Contents/images/site_bg.png) no-repeat -153px -850px;
+        border: none;
+        color: #FFF;
+        font-size: 15px;
+        font-weight: bold;
+        align-items: flex-start;
+        text-align: center;
+        cursor: default;
+        opacity: 0.9;
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+    }
+    .content{
+        display:inline-block;width:100%;
+        margin:5px 0 5px 0;
+    }
+</style>
+
+<div class="container">
+    <form id="iform" method="post" autocomplete="off">
+        <!--清除文本框输入缓存提示 autocomplete="off"-->
+        <div class="content">
+            <input name="Name" title="用户名" placeholder="请输入用户名" value="" />
+        </div>
+        <div class="content">
+            <input name="pwd" type="password" placeholder="请输入密码" value="" title="密码" />
+        </div>
+        <div id="captcha" style="position: relative" class="content"></div>
+        <div id="msg" class="content"></div>
+        <div class="content">
+            <input type="button" class="btn_sub" onclick="iSub()" value="登录" />
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    jigsaw.init(document.getElementById('captcha'), function () {
+        document.getElementById('msg').innerHTML = '验证成功！'
+    })
+    function iSub() {
+        if ($("#msg").html() != '验证成功！') {
+            win.alert("请先进行验证！");
+            return false;
+        }
+        var formdata = $("#iform").serializeArray();//序列化表单对象
+        var idata = { form: JSON.stringify(formdata) };
+        $.ajax({
+            url: "@Url.Action("Login","Login")",
+            type: "post",
+            data: idata,
+            success: function (data) {
+                if (data.code > 0) {
+                    location.href = "/Home/Index";
+                }
+                else {
+                    console.log(data.msg);
+                    win.alert("" + data.msg);
+                    //window.location.reload();
+                }
+            },
+            error: function () {
+                win.alert("网络错误！");
+            }
+        })
+    }
+</script>

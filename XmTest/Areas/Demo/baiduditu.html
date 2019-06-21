@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wLAtUdW6F69d0488MIIkdXXPXf7nFOqz"></script>
+    <!--map检索-->
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />-->
+    <!--点聚合-->
+    <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+    <title>Baidu Map</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #container {
+            width: 90%;
+            height: 90%;
+        }
+
+        #result {
+            width:auto;
+            height: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <div id="result">
+        <div id="content">
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        var map = new BMap.Map("container");//, { minZoom: 4, maxZoom: 10 }
+        var point = new BMap.Point(116.404, 39.915);//120.272745, 30.199875
+        map.centerAndZoom(point, 5);//设置级别
+        map.enableScrollWheelZoom();//滚轮缩放
+        var index = 0;
+        var myGeo = new BMap.Geocoder();
+        var adds = [
+    { "address": "包河区金寨路1号（金寨路与望江西路交叉口）", "company": "A公司" },
+    { "address": "庐阳区凤台路209号（凤台路与蒙城北路交叉口）", "company": "B公司" },
+    { "address": "蜀山区梅山路10号(近安徽饭店)", "company": "C公司" },
+    { "address": "蜀山区 长丰南路159号铜锣湾广场312室", "company": "D公司" },
+    { "address": "合肥市寿春路93号钱柜星乐町KTV（逍遥津公园对面）", "company": "E公司" },
+    { "address": "庐阳区长江中路177号", "company": "F公司" },
+    { "address": "新站区胜利路89", "company": "G公司" },
+        ];
+        function bdGEO() {
+            var add = adds[index];
+            geocodeSearch(add);
+            index++;
+        }
+        
+
+        function geocodeSearch(add) {
+            if (index < adds.length) {
+                setTimeout(window.bdGEO);
+                myGeo.getPoint(add.address, function (point) {
+                    if (point) {
+
+
+                        //document.getElementById("result").innerHTML += index + "、" + add + ":" + point.lng + "," + point.lat + "</br>";
+                        var address = new BMap.Point(point.lng, point.lat);
+                        addMarker(address, new BMap.Label(index + ":" + add.company, { offset: new BMap.Size(20, -10) }), add);
+                    }
+                }, "杭州市");
+            }
+        }
+        var opts = {
+            width: 200,     // 信息窗口宽度
+            height: 70,     // 信息窗口高度
+            title: "某某公司", // 信息窗口标题
+            enableMessage: true,//设置允许信息窗发送短息
+            message: ""
+        }
+        var markers = [];
+        // 编写自定义函数,创建标注
+        function addMarker(point, label, add) {
+            //水滴图标
+            var marker = new BMap.Marker(point);/*
+            , {
+                icon: new BMap.Symbol(BMap_Symbol_SHAPE_POINT, {
+                    scale: 0.8,//图标缩放大小
+                    fillColor: "GREEN",//填充颜色
+                    fillOpacity: 0.8//填充透明度
+                })
+            }
+            
+            */
+            markers.push(new BMap.Marker(point));
+            opts.title = add.company;
+            var infoWindow = new BMap.InfoWindow(add.address, opts);  // 创建信息窗口对象
+            marker.addEventListener("click", function () {
+                map.openInfoWindow(infoWindow, point); //开启信息窗口
+            });
+            map.addOverlay(marker);
+        }
+        //最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
+        var markerClusterer = new BMapLib.MarkerClusterer(map, { markers: markers });
+
+        ///获取坐标
+        map.addEventListener("click", function (e) {
+            $("#content").html("经纬度:"+"("+e.point.lng + "," + e.point.lat+")");
+        });
+        $(document).ready(function () {
+            bdGEO();
+        })
+
+    </script>
+
+</body>
+</html>

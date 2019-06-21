@@ -1,0 +1,194 @@
+﻿@{
+    ViewBag.Title = "水墨登录";
+}
+<script src="/Contents/js/Jquery.min.js"></script>
+<link href="/Contents/css/jigsaw.css" rel="stylesheet" />
+<script src="/Contents/js/jigsaw.js"></script>
+<script src="/Contents/js/jquery.form.js"></script>
+<style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    #box {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        animation: run1 8s;
+    }
+
+    @@keyframes run1 {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    #box img.bj {
+        width: 100%;
+    }
+
+    #box img.sc1 {
+        width: 15%;
+        position: absolute;
+        top: 60%;
+        left: 85%;
+        animation: run2 78s linear infinite 6s;
+    }
+
+    @@keyframes run2 {
+        from {
+            left: 85%;
+        }
+
+        to {
+            left: 25%;
+        }
+    }
+
+    #box img.sc2 {
+        width: 12%;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        animation: run3 20s linear infinite 4s;
+    }
+
+    @@keyframes run3 {
+        0% {
+            width: 12%;
+        }
+
+        50% {
+            width: 15%;
+        }
+
+        100% {
+            12%;
+        }
+    }
+
+    #box img#lsm {
+        position: absolute;
+        top: 0;
+        left: -900px;
+        animation: run4 80s linear infinite 4s;
+    }
+
+    @@keyframes run4 {
+        from {
+            left: -900px;
+        }
+
+        to {
+            left: 0px;
+        }
+    }
+
+    .container {
+        width: 310px;
+        /* margin: 250px auto; */
+        opacity: 0.85;
+        position: absolute;
+        z-index: 99999;
+        top: 31%;
+        left: 44%;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        line-height: 40px;
+        outline: none;
+        border: 1px solid #c8cccf;
+        border-radius: 4px;
+        color: #6a6f77;
+        opacity: 1;
+    }
+
+    #msg {
+        width: 100%;
+        line-height: 40px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    a:link, a:visited, a:hover, a:active {
+        margin-left: 100px;
+        color: #0366D6;
+    }
+    .btn_sub {
+        float: right;
+        width: 122px;
+        height: 32px;
+        background: url(/Contents/images/site_bg.png) no-repeat -153px -850px;
+        border: none;
+        color: #FFF;
+        font-size: 15px;
+        font-weight: bold;
+        align-items: flex-start;
+        text-align: center;
+        cursor: default;
+        opacity: 0.9;
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+    }
+</style>
+<div id="box">
+    <img src="/../../Contents/images/bj/2b.png" class="bj" />
+    <img src="/../../Contents/images/bj/1s.png" class="sc1" />
+    <img src="/../../Contents/images/bj/2s.png" class="sc2" />
+    <img src="/../../Contents/images/bj/lsm.png" id="lsm" />
+    <div class="container">
+        <form id="iform" method="post" autocomplete="off">
+            <!--清除文本框输入缓存提示 autocomplete="off"-->
+            <input name="Name" title="用户名" placeholder="请输入用户名" value="" />
+            <input name="pwd" type="password" placeholder="请输入密码" value="" title="密码" />
+            <div id="captcha" style="position: relative"></div>
+            <div id="msg"></div>
+            <input type="button" class="btn_sub" onclick="iSub()" value="登录" />
+        </form>
+    </div>
+</div>
+<!--<audio src="image/lsm.mp3" autoplay="autoplay" loop="loop"></audio>-->
+<link href="~/Contents/js/resetalert/window.css" rel="stylesheet" />
+<script src="~/Contents/js/resetalert/window.js"></script>
+<script type="text/javascript">
+    jigsaw.init(document.getElementById('captcha'), function () {
+        document.getElementById('msg').innerHTML = '验证成功！'
+    })
+    function iSub() {
+        if ($("#msg").html() != '验证成功！') {
+            win.alert("请先进行验证！");
+            return false;
+        }
+        var formdata = $("#iform").serializeArray();
+        var idata = { form: JSON.stringify(formdata) };
+        $.ajax({
+            url: "/Login/Login",
+            type: "post",
+            data: idata,
+            success: function (data) {
+                if (data.code > 0) {
+                    location.href = "/Home/Index";
+                }
+                else {
+                    console.log(data.msg);
+                    win.alert("" + data.msg);
+                    //window.location.reload();
+                }
+            },
+            error: function () {
+                win.alert("网络错误！");
+            }
+        })
+    }
+</script>

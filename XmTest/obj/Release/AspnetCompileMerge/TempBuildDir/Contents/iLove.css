@@ -1,0 +1,86 @@
+﻿body {
+    margin: 0 auto;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+html, body, #wrap {height: 100%;}
+body > #wrap {height: auto; min-height: 100%;}
+#main {padding-bottom: 100px;} /* 必须使用和footer相同的高度 */
+#footer {position: relative;
+margin-top: -100px; /* footer高度的负值 */
+height: 100px;
+clear:both;}
+
+.Container {
+    margin: 0 auto;
+    width: auto;
+    height: auto; 
+    min-height: 100%;
+    padding-bottom:100px;
+}
+.top {
+    height: 50px;
+    width: auto;
+}
+    .top ul {
+        width: 100%;
+        /*margin: 5px 0 0 40%;*/
+        text-align: center;
+        padding: 0;
+        line-height: 50px;
+        white-space: normal;
+    }
+
+        .top ul li {
+            display: inline-block;
+            padding: 10px 20px 10px 20px;
+            font-size: 18px;
+            list-style: none;
+            width: 100px;
+        }
+        #li_last{
+            float:right;
+            min-width:150px;
+            padding:0;
+        }
+            .top ul li:hover {
+                background-color: rgba(135, 167, 241, 0.56);
+            }
+
+    .top li a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+        .top li a:hover {
+            /*background-color: rgba(135, 167, 241, 0.56);*/
+            color: #0094ff;
+            text-decoration: none;
+        }
+
+.main {
+    width: 100%;
+    padding: 10px 17% 0px 17%;
+}
+
+.bottom {
+    position:relative;
+    margin-top:-100px;
+    height: 100px;
+    clear:both;
+    /*position:absolute;
+    bottom:0;*/
+    /*position:fixed;
+    bottom:0px;
+    z-index:99999;*/
+}
+
+.bottom_lab {
+    padding-top: 65px;
+    text-align: center;
+    font-size: 14px;
+}

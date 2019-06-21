@@ -1,0 +1,13 @@
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\XmTest.Data.dll.config
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\XmTest.Data.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\XmTest.Data.pdb
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\EntityFramework.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\EntityFramework.DynamicFilters.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\EntityFramework.xml
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\EntityFramework.DynamicFilters.xml
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\obj\Debug\XmTest.Data.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.Data\obj\Debug\XmTest.Data.pdb

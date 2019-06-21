@@ -1,0 +1,67 @@
+﻿@using XmTest.Models.ViewModel;
+@{
+    ViewBag.Title = "分类";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<style>
+    .iTop {
+        height: 100px;
+    }
+
+    .iMain {
+        display: inline-block;
+        height: auto;
+        width: 100%;
+        padding: 5px 10% 0 10%;
+        /*padding:5px 0 0 15px;*/
+    }
+
+    .category {
+        width: 20%;
+        height: 30px;
+        line-height: 30px;
+        display: inline-block;
+        font-family: STXinwei;
+        font-size: 15px;
+        text-align: center;
+    }
+
+        .category:hover {
+            background-color: rgba(135, 167, 241, 0.56);
+        }
+
+        .category a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+            .category a:hover {
+                color: #0094ff;
+                text-decoration: none;
+            }
+
+    .lesscategory {
+    }
+</style>
+
+<div class="iTop">
+    <a href="@Url.Action("EditNote","Category")">编辑</a>
+</div>
+<div class="iMain">
+
+    @*<div class="category">
+        <a href="">文学<label>(0)</label> </a>
+    </div>*@
+    @foreach (var item in ViewBag.cfList as List<ClassifyMode>)
+    {
+    <div class="category"> <a href="/Category/Category/CategoryDetail?category=@item.Name">@item.Name<span>(@item.Count)</span></a>  </div>
+    }
+
+   
+    @*<div class="category"> <a href="">感悟<span>(0)</span></a>  </div>
+    <div class="category"> <a href="">艺术<span>(0)</span></a> </div>
+    <div class="category"> <a href="">旅行<span>(0)</span></a> </div>
+    <div class="category"> <a href="">Css<span>(0)</span></a> </div>
+    <div class="category"> <a href="">JQuery<span>(0)</span></a> </div>
+    <div class="category"> <a href="">Js<span>(0)</span></a> </div>*@
+</div>

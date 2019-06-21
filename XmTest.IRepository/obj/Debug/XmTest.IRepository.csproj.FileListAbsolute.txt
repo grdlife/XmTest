@@ -1,0 +1,10 @@
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.IRepository\bin\Debug\XmTest.IRepository.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.IRepository\bin\Debug\XmTest.IRepository.pdb
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.IRepository\bin\Debug\XmTest.Data.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.IRepository\bin\Debug\EntityFramework.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.IRepository\bin\Debug\XmTest.Data.pdb
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.IRepository\bin\Debug\EntityFramework.xml
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.IRepository\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.IRepository\obj\Debug\XmTest.IRepository.csprojResolveAssemblyReference.cache
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.IRepository\obj\Debug\XmTest.IRepository.dll
+E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest.IRepository\obj\Debug\XmTest.IRepository.pdb

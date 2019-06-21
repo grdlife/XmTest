@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>中国风古典云纹返回顶部jQuery插件|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+    <link href="../../Contents/css/htmleaf-demo.css" rel="stylesheet" />
+	<style type="text/css">
+		/* --------- 返回顶部代码 --------- */
+
+		#shangxia {
+		    position: fixed;
+		    right: 50%;
+		    margin-right: -670px;
+		    top: 63%;
+		    z-index: 9993;
+		    -webkit-animation: dh_ffdb 2s steps(24) infinite;
+		    -o-animation: dh_ffdb 2s steps(24) infinite;
+		    animation: dh_ffdb 2s steps(24) infinite;
+		    background: url(/Contents/images/gotop.png) no-repeat;
+		    width: 54px;
+		    height: 300px;
+		    transition: 1s;
+		}
+
+		/* 悬停变为青绿色滤镜动画 */
+		#shangxia:hover {
+		    -webkit-filter: hue-rotate(-227deg);
+		    filter: hue-rotate(-227deg);
+		}
+
+		#shang, #comt, #xia {
+		    width: 33px;
+		    position:absolute;
+		    z-index: 9996;
+		    cursor: pointer;
+		}
+
+		/* png序列的关键帧动画 */
+		@keyframes dh_ffdb{
+		    100% {background-position:-1296px 0;}
+		}
+
+		#comt {
+		height: 33px;
+		top: 71px;
+		left: 10px;
+		}
+
+		#shang {
+		height: 32px;
+		top: 37px;
+		left: 10px;
+		}
+
+		#xia {
+		height: 33px;
+		top: 106px;
+		left: 10px;
+		}
+		/* 返回顶部代码完 */
+
+		/* 以下css和演示无关，可忽略。 */
+
+		body{margin: 0; padding:0;}
+
+		#pinglun{
+		font-size: 48px;
+		    font-family: kaiti;
+		    font-weight: bold;
+		    height: 600px;
+		    line-height: 600px;
+		    background: #e2e1c9;
+		    color: #7f7734;
+		    text-align: center;
+		}
+
+		#footerbar{
+			background: #000;
+		    padding: 36px 0;
+		    color: #fff;
+		    text-align: center;
+		}
+		#footerbar>a{
+			color: #fff;
+		}
+
+		textarea#comment {
+		    width: 80%;
+		    height:150px;
+		}
+	</style>
+	<!--[if IE]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>中国风古典云纹返回顶部jQuery插件 <span>A Chinese style back to top jQuery plugin</span></h1>
+		</header>
+		<div id="pinglun">
+		<textarea name="comment" id="comment" rows="5" tabindex="4" placeholder=" 留下你的精辟言论！支持Ctrl+Enter提交..."></textarea>
+		</div>
+        <div style="height:800px;width:auto;">
+
+        </div>
+        <div class="footerbar" id="footerbar">
+            <h3>测试</h3>
+        </div>
+	</div>
+   
+	<!-- 返回顶部DOM -->
+	<div id="shangxia">
+		<div id="shang"></div>
+		<!-- 
+		如果你是博客，这里需要加php判断。
+		是首页则跳转到留言板，是内页则跳转到评论框。 
+		-->
+		<div id="comt"></div>
+		<div id="xia"></div>
+	</div>
+	<!-- end 返回顶部DOM -->
+    <script src="../../Contents/js/Jquery.min.js"></script>
+    
+	<!-- 滚动js -->
+    <script src="../../Contents/zxtop/js/TweenMax.min.js"></script>
+    <script src="../../Contents/zxtop/js/ScrollToPlugin.min.js"></script>
+	<script type="text/javascript">
+		// 返回顶部js
+		jQuery(document).ready(function(a) {
+		    $body = window.opera ? document.compatMode == "CSS1Compat" ? a("html") :a("body") :a("html,body");
+		    a("#shang").mouseover(function() {
+		        up();
+		    }).mouseout(function() {
+		        clearTimeout(fq);
+		    }).click(function() {
+		        TweenMax.to(window, 1.5, {
+		            scrollTo:0,
+		            ease:Expo.easeInOut,
+		            y:0
+		        });
+		    });
+		/*
+		*点击返回顶部的“下”字时，以1秒是速度滚动到id为#footerbar处。
+		* window, 1 为1秒，这里可以随意设置。
+		* ease:Expo.easeInOut为速度的曲线缓动，这里支持jquery的ease函数。
+		*/    
+		    a("#xia").mouseover(function() {
+		        dn();
+		    }).mouseout(function() {
+		        clearTimeout(fq);
+		    }).click(function() {
+		        TweenMax.to(window, 1, {
+		            scrollTo:"#footerbar",
+		            ease:Expo.easeInOut
+		        });
+		    });
+
+
+		/*
+		*绑定返回顶部的“评”字的id"#comt"，以1.5秒的速度滚动到“#pinglun”评论区域。这里可以绑定多个id。
+		* window, 1.5 为1.5秒，这里可以随意设置。
+		* offsetY:30 为30像素的偏移量。
+		*/
+		    $("#comt").click(function() {
+		        TweenMax.to(window, 1.5, {
+		            scrollTo:{
+		                y:"#pinglun",
+		                offsetY:30
+		            },
+		            ease:Back.easeOut.config(1.9),
+		            y:0
+		        });
+		    });
+		});
+
+		// 下面的 "up()", 20是鼠标悬停时的位移速度，如需更慢，则设置为40或更高。
+		function up() {
+		    $wd = $(window);
+		    $wd.scrollTop($wd.scrollTop() - 1);
+		    fq = setTimeout("up()", 20);
+		}
+		function dn() {
+		    $wd = $(window);
+		    $wd.scrollTop($wd.scrollTop() + 1);
+		    fq = setTimeout("dn()", 20);
+		}
+	</script>
+	<!-- 古典云纹返回顶部 by 清萍剑客 www.qpjk.cc -->
+</body>
+</html>

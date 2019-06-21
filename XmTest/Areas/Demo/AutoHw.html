@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>自适应布局</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        .absolute_father {
+            width: 400px;
+            height: 300px;
+            background-color: #cfcfcf;
+            position: relative;
+        }
+
+        .absolute_son {
+            width: 60%;
+            height: 20%;
+            margin-left: 10%;
+            margin-top: 10%;
+            padding: 10%;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+        }
+
+        .float_father {
+            width: 400px;
+            height: 300px;
+            background-color: #cfcfcf;
+            overflow: hidden;
+        }
+
+        .float_son {
+            width: 20%;
+            height: 20%;
+            margin-left: 10%;
+            margin-top: 10%;
+        }
+
+        .static_father {
+            width: 100%;
+            height: 40%;
+            background-color: #cfcfcf;
+        }
+
+        .static_son {
+            width: 50%;
+            height: 20%;
+        }
+
+        .div_block {
+            margin-top: 100px;
+        }
+
+        .text_block {
+        }
+    </style>
+</head>
+<body>
+    <div>
+        移动端网页的自适应布局。
+        这样可以使屏幕大小不一的手机展示的页面布局比例一致。
+        我们先不用css3的box-flex属性，而是用百分比设置。
+    </div>
+    <div class="div_block">
+        <div>绝对定位的参考标准</div>
+        <div class="absolute_father">
+            <div class="absolute_son">
+                我是绝对定位块,可以看到子元素的left是参照父元素的宽W，top是参照父元素的高H。子元素的宽参照W，高参照父元素的H。子元素的margin-left参照W，<span style="color:red;">margin-top也是参照W</span>。这是因为margin：10px 10px 10px 10px;，可以缩写成一个margin:10px，为了数值的统一，也就只参考了父元素的W。padding是一样的道理。
+            </div>
+        </div>
+    </div>
+    <div class="div_block">
+        <div>float元素的参考标准</div>
+        <div class="float_father">
+            <div class="float_son">我是float块，子元素的宽参照W，高参照父元素的H</div>
+        </div>
+    </div>
+    <div class="div_block">
+        <div>static元素的参考标准</div>
+        <div class="static_father">
+            <div class="static_son">我是static块，子元素的宽参照W，高参照父元素的H。如果父元素的父height是auto，那么父元素的height就是靠content撑起，子元素设置height的百分比无效。</div>
+        </div>
+    </div>
+
+    <div class="div_block">
+        <div>自适应图片的定高</div>
+        <div>
+            有时候，某个区块的高度是靠内容撑起，并没有设置高度。那么如何统一设置图片的高度呢？解决思路是，用定宽高比的透明图来撑起高度。因为只对图片设置宽度，高度会按照宽高比进行定高。
+        </div>
+    </div>
+
+    <div class="div_block">
+        <div>文字自适应大小</div>
+        <div class="text_block">
+            请看demo2
+        </div>
+    </div>
+</body>
+</html>

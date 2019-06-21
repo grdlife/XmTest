@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmTest", "XmTest\XmTest.csproj", "{808FB14E-14E4-4BB0-A78D-0290B5C05C43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmTest.Service", "XmTest.Service\XmTest.Service.csproj", "{CD0F920D-9280-4993-ACB1-5F10F9F1B09C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmTest.Basic", "XmTest.Basic\XmTest.Basic.csproj", "{1A8C6118-8D2D-436E-96D6-BF2DB7865CC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmTest.Data", "XmTest.Data\XmTest.Data.csproj", "{2C8D7E18-D2F2-4974-AFEE-E6BEFB620861}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmTest.Repository", "XmTest.Repository\XmTest.Repository.csproj", "{6258FD43-5725-470B-A77E-0E6DC5FF30C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmTest.IRepository", "XmTest.IRepository\XmTest.IRepository.csproj", "{83957FC7-6173-406D-A393-32C0A9055898}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{808FB14E-14E4-4BB0-A78D-0290B5C05C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{808FB14E-14E4-4BB0-A78D-0290B5C05C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{808FB14E-14E4-4BB0-A78D-0290B5C05C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{808FB14E-14E4-4BB0-A78D-0290B5C05C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD0F920D-9280-4993-ACB1-5F10F9F1B09C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD0F920D-9280-4993-ACB1-5F10F9F1B09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD0F920D-9280-4993-ACB1-5F10F9F1B09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD0F920D-9280-4993-ACB1-5F10F9F1B09C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A8C6118-8D2D-436E-96D6-BF2DB7865CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8C6118-8D2D-436E-96D6-BF2DB7865CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8C6118-8D2D-436E-96D6-BF2DB7865CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8C6118-8D2D-436E-96D6-BF2DB7865CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C8D7E18-D2F2-4974-AFEE-E6BEFB620861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C8D7E18-D2F2-4974-AFEE-E6BEFB620861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C8D7E18-D2F2-4974-AFEE-E6BEFB620861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C8D7E18-D2F2-4974-AFEE-E6BEFB620861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6258FD43-5725-470B-A77E-0E6DC5FF30C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6258FD43-5725-470B-A77E-0E6DC5FF30C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6258FD43-5725-470B-A77E-0E6DC5FF30C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6258FD43-5725-470B-A77E-0E6DC5FF30C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83957FC7-6173-406D-A393-32C0A9055898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83957FC7-6173-406D-A393-32C0A9055898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83957FC7-6173-406D-A393-32C0A9055898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83957FC7-6173-406D-A393-32C0A9055898}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
