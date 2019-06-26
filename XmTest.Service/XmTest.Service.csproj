@@ -48,11 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basic\BlogDAL.cs" />
+    <Compile Include="Basic\CommentDAL.cs" />
     <Compile Include="Basic\NotesDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\XmTest.Basic\XmTest.Basic.csproj">
+      <Project>{1a8c6118-8d2d-436e-96d6-bf2db7865cc6}</Project>
+      <Name>XmTest.Basic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XmTest.Data\XmTest.Data.csproj">
       <Project>{2c8d7e18-d2f2-4974-afee-e6befb620861}</Project>
       <Name>XmTest.Data</Name>

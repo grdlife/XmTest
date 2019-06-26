@@ -44,8 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysBasic\CommentRepository.cs" />
     <Compile Include="sysBasic\NotesRepository.cs" />
+    <Compile Include="sysBasic\X_AlbumRepository.cs" />
+    <Compile Include="sysBasic\X_AlbumTypeRepository.cs" />
     <Compile Include="sysBasic\X_ClassifyRepository.cs" />
+    <Compile Include="sysBasic\X_DiaryRepository.cs" />
     <Compile Include="sysBasic\X_RoleRepository.cs" />
     <Compile Include="sysBasic\X_UserRepository.cs" />
     <Compile Include="sysBasic\X_User_RoleRepository.cs" />

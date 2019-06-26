@@ -13,7 +13,7 @@ namespace XmTest.Repository.sysBasic
 {
     public class X_ClassifyRepository : RepositoryBase<X_Classify>, IX_ClassifyRepository
     {
-        private INotesRepository noteService;
+        private INotesRepository noteService = new NotesRepository();
         public bool EditNote(string str, int userId)
         {
             if (str.IsNullOrEmpty())

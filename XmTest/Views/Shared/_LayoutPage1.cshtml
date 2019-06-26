@@ -30,38 +30,42 @@
     <script src="~/Contents/js/resetalert/window.js"></script>
 </head>
 <body>
-    <div id="#wrap"class="Container">
-        <div class="top"><!--头部-->
-            <ul >
-                <li><a href="/Home/Index">首页</a></li>
+    <div id="#wrap" class="Container">
+        <div class="top">
+            <!--头部-->
+            <ul>
+                <li><a href="/Home/Index">小花园</a></li>
+                <li><a href="/Blog/Blog/BlogCenter">博客</a></li>
+                <li><a href="/Category/Category/Index">日记</a></li>
                 <li><a href="/Category/Category/Index">分类</a></li>
                 <li><a href="/Product/Product/Index">关于</a></li>
                 <li id="li_last">
-                @{
-                    var random = new Random();
-                    var num = random.Next(0, 2);
-                }
-                @if(ViewBag.user=="")
-                {
-                    if(num > 0)
+                    @{
+                        var random = new Random();
+                        var num = random.Next(0, 2);
+                    }
+                    @if (string.IsNullOrWhiteSpace(ViewBag.user))
                     {
-                       <span><a href="/Login/Index" va="@num">登录</a></span>
+                        if (num > 0)
+                        {
+                            <span><a href="/Login/Index" va="@num">登录</a></span>
+                        }
+                        else
+                        {
+                            <span><a href="/Login/Index2" va="@num">登录</a></span>
+                        }
+                        <span>
+                            |<a>注册</a>
+                        </span>
                     }
                     else
                     {
-                       <span><a href="/Login/Index2" va="@num">登录</a></span>
+                        <span>
+                            @ViewBag.user,欢迎你！|<a href="/Login/Loginout">注销</a>
+                        </span>
                     }
-                    <span>
-                    |<a>注册</a></span>
-                }
-                else
-                {
-                    <span>
-                        @ViewBag.user,欢迎你！|<a href="/Login/Loginout">注销</a>
-                    </span>
-                }
 
-             </li>
+                </li>
             </ul>
         </div>
         <!--主体-->
@@ -89,4 +93,4 @@
     </div>
 </body>
 </html>
- <!--版权声明：部分素材源于网上,如有侵权，请告知！-->
+<!--版权声明：部分素材源于网上,如有侵权，请告知！-->

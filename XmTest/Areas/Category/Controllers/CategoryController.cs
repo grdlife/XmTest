@@ -30,6 +30,8 @@ namespace XmTest.Areas.Category
         /// </summary>
         public ActionResult Index()
         {
+            Notes not = null;
+            string content = not.Content;
             List<ClassifyMode> classify = service.GetList(x => x.UserID == loginId).Select(x => new ClassifyMode { Name = x.Name, Count = x.Count }).ToList();
             ViewBag.cfList = classify;
             return View();

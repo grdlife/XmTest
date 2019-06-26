@@ -53,6 +53,7 @@
     <Compile Include="ViewModel\ClassifyMode.cs" />
     <Compile Include="ViewModel\NoteMode.cs" />
     <Compile Include="Web\AjaxResult.cs" />
+    <Compile Include="Web\Pagination.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

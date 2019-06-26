@@ -14,12 +14,20 @@ namespace XmTest.Controllers
     public class BaseWebController : Controller
     {
         public static int loginId { get; set; }
-        #region 调用服务对象
+
+        #region[        调用服务对象    ]
         public IX_UserRepository userService = new X_UserRepository();
         public IX_RoleRepository roleSerivce = new X_RoleRepository();
         public IX_User_RoleRepository use_roleService = new X_User_RoleRepository();
+
         public INotesRepository noteService = new NotesRepository();
         public IX_ClassifyRepository classifyService = new X_ClassifyRepository();
+        public ICommentRepository commentService = new CommentRepository();
+
+        public IX_AlbumRepository albumService = new X_AlbumRepository();
+        public IX_AlbumTypeRepository  albumTypeService= new X_AlbumTypeRepository();
+
+        public IX_DiaryRepository diaryService = new X_DiaryRepository();
         #endregion
 
         //

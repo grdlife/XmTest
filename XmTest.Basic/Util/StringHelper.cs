@@ -86,7 +86,9 @@ namespace XmTest.Basic.Util
                     return string.Empty;
                 return str.Substring(IndexofA + str1.Length, Index);
             }
-            catch(Exception ex){
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             return string.Empty;
         }

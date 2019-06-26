@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
-using XmTest.Data.DBEntity;
+using XmTest.Data.Entity;
 
 namespace XmTest.Data.Factory
 {

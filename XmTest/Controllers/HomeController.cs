@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using XmTest.Data.Entity;
-
+using XmTest.Service.Basic;
+using XmTest.Basic.Web;
 namespace XmTest.Controllers
 {
     public class HomeController : BaseWebController
@@ -12,15 +13,11 @@ namespace XmTest.Controllers
         //
         // GET: /Home/
        
-        public ActionResult Index()
+        public ActionResult Index(Page page)
         {
-            List<Notes> notes = new List<Notes>();
-            if(noteService!=null)
-            {
-                notes = noteService.GetList(x => x.UserID == loginId);
-                if (notes == null && notes.Count == 0)
-                    notes = new List<Notes>();
-            }
+            page.pageindex = 1;
+            page.pagesize = 20;
+            List<Notes> notes = NotesDAL.Instance.GetNotes(page);
             return View(notes);
         }
         /// <summary>
@@ -33,6 +30,21 @@ namespace XmTest.Controllers
         }
 
         public ActionResult Tud()
+        {
+            return View();
+        }
+
+
+        /// <summary>
+        /// 404错误页
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ErrorNoFund()
+        {
+            return View();
+        }
+
+        public ActionResult Error()
         {
             return View();
         }

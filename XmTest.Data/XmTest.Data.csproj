@@ -64,7 +64,10 @@
     <Compile Include="Entity\Comment.cs" />
     <Compile Include="Entity\Notes.cs" />
     <Compile Include="DBEntity\XmDBConetext.cs" />
+    <Compile Include="Entity\X_Album.cs" />
+    <Compile Include="Entity\X_AlbumType.cs" />
     <Compile Include="Entity\X_Classify.cs" />
+    <Compile Include="Entity\X_Diary.cs" />
     <Compile Include="Entity\X_Role.cs" />
     <Compile Include="Entity\X_User.cs" />
     <Compile Include="Entity\X_User_Role.cs" />
@@ -76,7 +79,12 @@
     <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Repository\RepositoryBase.T.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\XmTest.Basic\XmTest.Basic.csproj">
+      <Project>{1a8c6118-8d2d-436e-96d6-bf2db7865cc6}</Project>
+      <Name>XmTest.Basic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
