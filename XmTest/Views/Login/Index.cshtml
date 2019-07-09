@@ -2,12 +2,13 @@
     ViewBag.Title = "分类";
 }
 <link href="~/Contents/js/resetalert/window.css" rel="stylesheet" />
+<link href="~/Contents/css/jigsaw.css" rel="stylesheet" />
+<link href="../../Contents/css/xuanran/style.css" rel="stylesheet" />
 <script src="~/Contents/js/Jquery.min.js"></script>
 <script src="~/Contents/js/resetalert/window.js"></script>
-<link href="~/Contents/css/jigsaw.css" rel="stylesheet" />
 <script src="~/Contents/js/jigsaw.js"></script>
 <script src="~/Contents/js/jquery.form.js"></script>
-<link href="../../Contents/css/xuanran/style.css" rel="stylesheet" />
+<script src="~/Contents/js/framework.ui.js"></script>
 <style>
     body {
         background: url(/Contents/images/login/bg104.jpg) no-repeat;
@@ -24,11 +25,12 @@
         top: 31%;
         left: 44%;
     }
+
     input {
         display: block;
         width: 100%;
         line-height: 40px;
-        font-size:14px;
+        font-size: 14px;
         outline: none;
         border: 1px solid #c8cccf;
         border-radius: 4px;
@@ -42,13 +44,13 @@
         text-align: center;
     }
 
-    a:link, a:visited, a:hover, a:active {
+    /*a:link, a:visited, a:hover, a:active {
         margin-left: 100px;
         color: #0366D6;
     }
 
     .btn_sub {
-        float:right;
+        float: right;
         width: 122px;
         height: 32px;
         background: url(/Contents/images/site_bg.png) no-repeat -153px -850px;
@@ -67,20 +69,22 @@
         text-shadow: none;
         display: inline-block;
     }
-    .content{
-        display:inline-block;width:100%;
-        margin:5px 0 5px 0;
+    .content {
+        display: inline-block;
+        width: 100%;
+        margin: 5px 0 5px 0;
     }
+    */
 </style>
 
 <div class="container">
     <form id="iform" method="post" autocomplete="off">
         <!--清除文本框输入缓存提示 autocomplete="off"-->
         <div class="content">
-            <input name="Name" title="用户名" placeholder="请输入用户名" value="" />
+            <input name="name" title="用户名" placeholder="请输入用户名" value="" />
         </div>
         <div class="content">
-            <input name="pwd" type="password" placeholder="请输入密码" value="" title="密码" />
+            <input name="password" type="password" placeholder="请输入密码" value="" title="密码" />
         </div>
         <div id="captcha" style="position: relative" class="content"></div>
         <div id="msg" class="content"></div>
@@ -99,12 +103,9 @@
             win.alert("请先进行验证！");
             return false;
         }
-        var formdata = $("#iform").serializeArray();//序列化表单对象
-        var idata = { form: JSON.stringify(formdata) };
-        $.ajax({
-            url: "@Url.Action("Login","Login")",
-            type: "post",
-            data: idata,
+        var params = {
+            url: "/Login/Login",
+            data: { form: JSON.stringify($("#iform").serializeObject()) },
             success: function (data) {
                 if (data.code > 0) {
                     location.href = "/Home/Index";
@@ -114,10 +115,8 @@
                     win.alert("" + data.msg);
                     //window.location.reload();
                 }
-            },
-            error: function () {
-                win.alert("网络错误！");
             }
-        })
+        }
+        $.submitForm(params);
     }
 </script>

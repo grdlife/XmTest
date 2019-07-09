@@ -30,32 +30,31 @@ namespace XmTest.Areas.Category
         /// </summary>
         public ActionResult Index()
         {
-            Notes not = null;
-            string content = not.Content;
             List<ClassifyMode> classify = service.GetList(x => x.UserID == loginId).Select(x => new ClassifyMode { Name = x.Name, Count = x.Count }).ToList();
             ViewBag.cfList = classify;
             return View();
         }
 
         /// <summary>
-        /// 分类=>CategoryDetail
+        /// 分类=>详情列表
         /// </summary>
         public ActionResult CategoryDetail(string category)
         {
             ViewBag.CategoryTitle = category;
-            ViewBag.xcList = NotesDAL.Instance.GetclassifyDetail(category, loginId); 
-            return View();
+            List<Notes> xcList = NotesService.Instance.GetclassifyDetail(category, loginId);
+            return View(xcList);
         }
 
         /// <summary>
-        /// 分类=>详情列表
+        /// 分类=>详情页
         /// </summary>
         public ActionResult Detail(int NoteID)
         {
             Notes note = noteService.GetModel(x => x.Id == NoteID);
-            note.Content = note.Content.Replace("<br />\r\n", "<br />");
+            note.Content = note.Content!=null &&note.Content.IndexOf("<br />\r\n")>-1? note.Content.Replace("<br />\r\n", "<br />"):"";
             return View(note);
         }
+
         public ActionResult AddNote()
         {
             ViewBag.Classifys = Helpers.GetWebItems();

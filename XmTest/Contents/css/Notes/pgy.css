@@ -1,4 +1,5 @@
-﻿ @media screen and (max-width:600px){
+﻿/*左下蒲公英样式*/ 
+@media screen and (max-width:600px){
     .dandelion{display: none !important;}
     }
     .dandelion .smalldan {

@@ -1,0 +1,19 @@
+﻿@model List<XmTest.Data.Entity.X_Diary>
+@{
+    ViewBag.Title = "私人日记";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<h2>私人日记</h2>
+<link href="~/Contents/css/Notes/Notes.css" rel="stylesheet" />
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="Note">
+            <h4><a href="/Diary/Diary/Detail?id=@item.Id">@item.Title</a></h4>
+            <div class="Note_Content">
+                <span>@(new HtmlString(item.Content))</span>
+            </div>
+        </div>
+    }
+</div>
+

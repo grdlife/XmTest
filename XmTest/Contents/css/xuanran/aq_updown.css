@@ -1,4 +1,5 @@
-﻿#aq_updown {
+﻿/*如意上下滚动样式*/
+#aq_updown {
     position: fixed;
     right: 50%;
     margin-right: -700px;

@@ -8,15 +8,17 @@ namespace XmTest.Basic.Web
     public class Page
     {
         private string _sorttype = "Asc";
+        private int _pageindex = 1;
+        private int _pagesize = 20;
 
         /// <summary>
         /// 每页行数
         /// </summary>
-        public int pagesize { get; set; }
+        public int pagesize { get { return this._pagesize; } set { this._pagesize = value; } }
         /// <summary>
         /// 当前页
         /// </summary>
-        public int pageindex { get; set; }
+        public int pageindex { get { return this._pageindex; } set { this._pageindex = value; } }
         /// <summary>
         /// 排序列
         /// </summary>

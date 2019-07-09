@@ -19,5 +19,8 @@ namespace XmTest.Data.Entity
         [Column(TypeName = "text")]
         [Required]
         public string Content { get; set; }
+
+
+        public DateTime CreateTime { get; set; }
     }
 }

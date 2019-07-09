@@ -177,7 +177,6 @@ E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest\bin\zh-Hans\System.Web.WebP
 E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest\obj\Debug\XmTest.csprojResolveAssemblyReference.cache
 E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest\obj\Debug\XmTest.dll
 E:\xin文档\常用文件\Projects\ExM\XmTest\XmTest\obj\Debug\XmTest.pdb
-E:\xin文档\Demo\XmTest\XmTest\obj\Debug\XmTest.csprojResolveAssemblyReference.cache
 E:\xin文档\Demo\XmTest\XmTest\bin\XmTest.dll.config
 E:\xin文档\Demo\XmTest\XmTest\bin\XmTest.dll
 E:\xin文档\Demo\XmTest\XmTest\bin\XmTest.pdb
@@ -243,5 +242,6 @@ E:\xin文档\Demo\XmTest\XmTest\bin\zh-Hans\System.Web.Razor.resources.dll
 E:\xin文档\Demo\XmTest\XmTest\bin\zh-Hans\System.Web.WebPages.resources.dll
 E:\xin文档\Demo\XmTest\XmTest\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\xin文档\Demo\XmTest\XmTest\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+E:\xin文档\Demo\XmTest\XmTest\obj\Debug\XmTest.csprojResolveAssemblyReference.cache
 E:\xin文档\Demo\XmTest\XmTest\obj\Debug\XmTest.dll
 E:\xin文档\Demo\XmTest\XmTest\obj\Debug\XmTest.pdb

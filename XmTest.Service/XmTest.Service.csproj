@@ -48,9 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Basic\BlogDAL.cs" />
-    <Compile Include="Basic\CommentDAL.cs" />
-    <Compile Include="Basic\NotesDAL.cs" />
+    <Compile Include="Basic\BlogService.cs" />
+    <Compile Include="Basic\CommentService.cs" />
+    <Compile Include="Basic\DiaryService.cs" />
+    <Compile Include="Basic\NotesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -78,7 +79,8 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)XmTest\bin\$(TargetFileName)"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

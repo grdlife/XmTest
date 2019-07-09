@@ -1,0 +1,173 @@
+﻿
+/*四分钟网页布局*/
+body {
+    margin: 0 auto;
+    max-width: 65em;
+    font-family: Arial; /*微软雅黑，"Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;*/
+    line-height: 1.75;
+    padding: 4em 1em;
+    color: #555;
+    font-size:14px;
+    /*color:#566b78;*/
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #278ed8;
+}
+
+h2 {
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+    h1, h2 strong {
+        color: #333;
+    }
+
+code, pre {
+    background: #fff;
+    border-bottom: 1px solid #d8dee9;
+    color: #a7adba;
+}
+
+code {
+    padding: 2px 4px;
+    vertical-align: text-bottom;
+}
+
+pre {
+    padding: 1em;
+    border-left: 2px solid #69c;
+}
+
+
+
+/*头部*/
+header {
+    background-color: #263d36;
+    background-image: url("http://image.uisdc.com/wp-content/uploads/2016/10/header.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    line-height: 1.2;
+    padding: 10vw 2em;
+    text-align: center;
+}
+
+    header img {
+        display: inline-block;
+        height: 120px;
+        vertical-align: top;
+        width: 120px;
+    }
+
+    header h1 {
+        color: white;
+        font-size: 2.5em;
+        font-weight: 300;
+    }
+
+    header a {
+        border: 1px solid #e81c4f;
+        border-radius: 290486px;
+        color: white;
+        font-size: 0.8em;
+        letter-spacing: 0.2em;
+        padding: 1em 2em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: none 200ms ease-out;
+        transition-property: color, background;
+    }
+
+        header a:hover {
+            background: #e81c4f;
+            color: white;
+        }
+/*块级div*/
+.block {
+    display: inline-block;
+    width: 100%;
+    margin: 5px 0 5px 0;
+}
+
+.block_left {
+    display: inline-block;
+    width: 40%;
+}
+
+.block_right {
+    display: inline-block;
+    width: 60%;
+}
+
+.align_lf {
+    text-align: left;
+}
+
+.align_rg {
+    text-align: right;
+}
+.align{
+    text-align:center;
+}
+.indent{
+    text-indent:25px;
+}
+
+
+input, select {
+    width: 220px;
+    height: 26px;
+    border-radius: 4px;
+    padding-left: 2px;
+    border: 1px solid #808080;
+}
+
+/*按钮样式*/
+.btn_ok {
+}
+
+.btn_sub {
+    float: right;
+    width: 122px;
+    height: 32px;
+    background: url(/Contents/images/site_bg.png) no-repeat -153px -850px;
+    border: none;
+    color: #FFF;
+    font-size: 15px;
+    font-weight: bold;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    opacity: 0.9;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: #0366D6;
+}
+
+/*Note*/
+.note {
+    padding: 15px 10px 5px 10px;
+    margin:4px;
+    line-height: 25px;
+    display: block;
+    word-break: break-all;
+    word-wrap: break-word;
+    background: #fff;
+    /*border-top:1px dashed #808080;*/
+    border-radius:2px;
+}

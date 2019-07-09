@@ -1,36 +1,12 @@
-﻿ .Note{
-        padding: 15px 10px 5px 10px;
-        padding-bottom: 2px;
-        font-size: 14px;
-        font-family:'Microsoft YaHei';
-        line-height: 25px;
-        display: block;
-        word-break: break-all;
-        word-wrap: break-word;
-    }
-     .Note h4{
-         text-align:center;
+﻿.note {
+    padding: 15px 10px 5px 10px;
+    margin:4px;
+    line-height: 25px;
+    display: block;
+    word-break: break-all;
+    word-wrap: break-word;
+    background: #fff;
+    border-top:1px dashed #808080;
+    border-radius:2px;
+}
 
-     }
-     .Note h5{
-         text-align:right;
-
-     }
-     .Note_Content{
-         text-indent:25px;
-     }
-     .Note_bottom 
-     {
-         text-align:right;
-     }
-        ._left
-       {
-           padding-right:10px;
-           display:inline-block;
-       }
-        ._right{
-               display:inline-block;
-       }
-           ._right span{
-               padding:0 2px 0 2px;
-          }

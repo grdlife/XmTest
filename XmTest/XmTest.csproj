@@ -146,14 +146,17 @@
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="Areas\Album\AlbumAreaRegistration.cs" />
+    <Compile Include="Areas\Album\Controllers\AlbumController.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogController.cs" />
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Diary\Controllers\DiaryController.cs" />
     <Compile Include="Areas\Diary\DiaryAreaRegistration.cs" />
     <Compile Include="Areas\Product\ProductAreaRegistration.cs" />
     <Compile Include="Areas\Product\Controllers\ProductController.cs" />
     <Compile Include="Areas\Setting\SettingAreaRegistration.cs" />
+    <Content Include="Contents\layout.css" />
     <Compile Include="Utils\CacheHelper.cs" />
     <Compile Include="Utils\EncodingHelper.cs" />
     <Compile Include="Utils\Helpers.cs">
@@ -204,7 +207,7 @@
     <Content Include="Contents\css\boxImg\boxImg.js" />
     <Content Include="Contents\css\boxImg\jquery.min.js" />
     <Content Include="Contents\css\jigsaw.css" />
-    <Content Include="Contents\css\Notes\Notes.css" />
+    <Content Include="Contents\css\Notes\notes.css" />
     <Content Include="Contents\css\Notes\pgy.css" />
     <Content Include="Contents\css\shards-demo.css" />
     <Content Include="Contents\css\shards-demo.min.css" />
@@ -497,7 +500,7 @@
     <Content Include="kindeditor\themes\simple\simple.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Contents\iLove.css" />
+    <Content Include="Contents\common.css" />
     <Content Include="test.html" />
     <Content Include="treeTable v1.4.2\demo\style\demo.css" />
     <Content Include="treeTable v1.4.2\demo\treeTable.html" />
@@ -518,13 +521,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Album\Controllers\" />
     <Folder Include="Areas\Album\Models\" />
     <Folder Include="Areas\Album\Views\Shared\" />
     <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Category\Models\" />
-    <Folder Include="Areas\Diary\Controllers\" />
     <Folder Include="Areas\Diary\Models\" />
     <Folder Include="Areas\Diary\Views\Shared\" />
     <Folder Include="Areas\Product\Models\" />
@@ -594,6 +595,11 @@
     <Content Include="Areas\Album\Views\Web.config" />
     <Content Include="Areas\Diary\Views\Web.config" />
     <Content Include="Areas\Blog\Views\Blog\BlogCenter.cshtml" />
+    <Content Include="Configs\database.config" />
+    <Content Include="Configs\system.config" />
+    <Content Include="Areas\Diary\Views\Diary\Index.cshtml" />
+    <Content Include="Areas\Diary\Views\Diary\Detail.cshtml" />
+    <Content Include="Areas\Diary\Views\Diary\DiaryAdd.cshtml" />
     <None Include="Properties\PublishProfiles\XmTest.pubxml" />
     <None Include="Properties\PublishProfiles\xmx.pubxml" />
     <Content Include="Views\Home\Error.cshtml" />
@@ -602,6 +608,7 @@
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\Tud.cshtml" />
     <Content Include="Views\Home\ErrorNoFund.cshtml" />
+    <Content Include="Views\Shared\_LayoutTwo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XmTest.Basic\XmTest.Basic.csproj">

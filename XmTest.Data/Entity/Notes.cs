@@ -33,5 +33,12 @@ namespace XmTest.Data.Entity
 
         [StringLength(150)]
         public string Motto { get; set; }
+
+
+        public DateTime CreateTime { get; set; }
+
+
+        public DateTime UpdateTime { get; set; }
+
     }
 }

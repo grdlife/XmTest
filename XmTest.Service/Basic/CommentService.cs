@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XmTest.Service.Basic
 {
-    public  class CommentDAL
+    public  class CommentService
     {
     }
 }

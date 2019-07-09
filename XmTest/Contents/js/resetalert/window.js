@@ -62,7 +62,7 @@
         };
 
         var html = '<div class="win"><div class="mask-layer"></div><div class="window-panel"><iframe class="title-panel" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe><div class="title"><h3></h3></div><a href="javascript:void(0)" onclick="win._close(false);" class="close-btn" title="关闭">×</a><div class="body-panel"><p class="content"></p><p class="btns"><button class="w-btn" tabindex="1" onclick="win._close(true);">确定</button><button class="w-btn" onclick="win._close(false);">取消</button></p></div></div></div>';
-        messageBox(html, title, message);
+        messageBox(html, title, message,140, 300);
     };
 
     // 提示框

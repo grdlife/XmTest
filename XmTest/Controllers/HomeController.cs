@@ -6,19 +6,28 @@ using System.Web.Mvc;
 using XmTest.Data.Entity;
 using XmTest.Service.Basic;
 using XmTest.Basic.Web;
+using XmTest.Basic.Helpers;
 namespace XmTest.Controllers
 {
     public class HomeController : BaseWebController
     {
         //
         // GET: /Home/
-       
+
         public ActionResult Index(Page page)
         {
-            page.pageindex = 1;
-            page.pagesize = 20;
-            List<Notes> notes = NotesDAL.Instance.GetNotes(page);
-            return View(notes);
+            List<Notes> notes = new List<Notes>();
+            try
+            {
+                notes = NotesService.Instance.GetNotes(page);
+                return View(notes);
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex);
+                return View(notes);
+            }
+
         }
         /// <summary>
         /// 导航栏测试页
@@ -33,7 +42,6 @@ namespace XmTest.Controllers
         {
             return View();
         }
-
 
         /// <summary>
         /// 404错误页

@@ -5,6 +5,9 @@
 <link href="/Contents/css/jigsaw.css" rel="stylesheet" />
 <script src="/Contents/js/jigsaw.js"></script>
 <script src="/Contents/js/jquery.form.js"></script>
+<link href="~/Contents/js/resetalert/window.css" rel="stylesheet" />
+<script src="~/Contents/js/resetalert/window.js"></script>
+<script src="~/Contents/js/framework.ui.js"></script>
 <style type="text/css">
     * {
         padding: 0;
@@ -150,17 +153,14 @@
     <div class="container">
         <form id="iform" method="post" autocomplete="off">
             <!--清除文本框输入缓存提示 autocomplete="off"-->
-            <input name="Name" title="用户名" placeholder="请输入用户名" value="" />
-            <input name="pwd" type="password" placeholder="请输入密码" value="" title="密码" />
+            <input name="name" title="用户名" placeholder="请输入用户名" value="" />
+            <input name="password" type="password" placeholder="请输入密码" value="" title="密码" />
             <div id="captcha" style="position: relative"></div>
             <div id="msg"></div>
             <input type="button" class="btn_sub" onclick="iSub()" value="登录" />
         </form>
     </div>
 </div>
-<!--<audio src="image/lsm.mp3" autoplay="autoplay" loop="loop"></audio>-->
-<link href="~/Contents/js/resetalert/window.css" rel="stylesheet" />
-<script src="~/Contents/js/resetalert/window.js"></script>
 <script type="text/javascript">
     jigsaw.init(document.getElementById('captcha'), function () {
         document.getElementById('msg').innerHTML = '验证成功！'
@@ -170,12 +170,9 @@
             win.alert("请先进行验证！");
             return false;
         }
-        var formdata = $("#iform").serializeArray();
-        var idata = { form: JSON.stringify(formdata) };
-        $.ajax({
+        var params = {
             url: "/Login/Login",
-            type: "post",
-            data: idata,
+            data: { form: JSON.stringify($("#iform").serializeObject()) },
             success: function (data) {
                 if (data.code > 0) {
                     location.href = "/Home/Index";
@@ -185,10 +182,8 @@
                     win.alert("" + data.msg);
                     //window.location.reload();
                 }
-            },
-            error: function () {
-                win.alert("网络错误！");
             }
-        })
+        }
+        $.submitForm(params);
     }
 </script>

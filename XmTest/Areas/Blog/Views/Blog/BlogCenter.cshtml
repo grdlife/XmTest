@@ -1,26 +1,26 @@
-﻿@using XmTest.Data.Entity;
+﻿@model List<XmTest.Data.Entity.Notes>
 @{
     ViewBag.Title = "BlogCenter";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
-<link href="~/Contents/css/Notes/Notes.css" rel="stylesheet" />
-<div>
-    <h5>——千千阙歌，照亮我的心灵！</h5>
-    @foreach (var item in ViewBag.xcList as List<Notes>)
-    {
-        <div class="Note">
-            <h4><a href="/Category/Category/Detail?NoteID=@item.Id">@item.Title</a></h4>
-            <div class="Note_Content">
-                <span>@(new HtmlString(item.Content))</span>
-            </div>
-            <div class="Note_bottom">
-                <div class="Note_bottom _left">
-                    <span> 2018-08-15</span>
+@if (Model != null && Model.Count > 0)
+{
+    <div>
+        <h5 class="align_rg">——千千阙歌，照亮我的心灵！</h5>
+        @foreach (var item in Model)
+        {
+            <div class="note">
+                <h4 class="align"><a href="/Category/Category/Detail?NoteID=@item.Id">@item.Title</a></h4>
+                <div class="indent">
+                    <span>@(new HtmlString(item.Content))</span>
                 </div>
-                <div class="Note_bottom _right">
-                    <span>赞(@item.ThumbUpCount)</span><span>踩(0)</span><span>评论(0)</span>
+                <div>
+                    <div class="align_rg">
+                        <span>@item.UpdateTime.ToString("yyyy-MM-dd HH:mm")   赞(@item.ThumbUpCount)</span><span>踩(0)</span><span>评论(0)</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
+}
+

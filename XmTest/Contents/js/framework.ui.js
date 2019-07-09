@@ -28,31 +28,34 @@ $.submitForm = function (options) {
         url: "",
         data: [],
         loading: "正在提交数据...",
-        success: null,
+        success: function (data) {
+            if (data.code > 0) {
+                alert(data.msg);
+                console.log(data.msg);
+                location.reload();
+            }
+            else {
+                alert(data.msg);
+            }
+        },
         close: true
     };
 
-    var options = $.extend(defaults, options);
-    $.loading(true, options.loading);
+    var params = $.extend(defaults, options);
+
+    $.loading(true, params.loading);
     window.setTimeout(function () {
         $.ajax({
-            url: options.url,
-            data: options.data,
+            url: params.url,
+            data: params.data,
             type: "post",
             dataType: "json",
-            success: function (data) {
-                if (data.state = "success") {
-                    alert(data.msg);
-                }
-                else {
-                    alert(data.msg);
-                }
-            },
+            success: params.success,
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 $.loading(false);
             },
             beforeSend: function () {
-                $.loading(true, options.loading);
+                $.loading(true, params.loading);
             },
             complete: function () {
                 $.loading(false);

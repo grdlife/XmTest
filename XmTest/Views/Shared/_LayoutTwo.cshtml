@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    @*<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>*@
+    <script src="~/Contents/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Contents/js/framework.ui.js"></script>
+    <script src="~/Contents/js/jquery.form.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="~/favicon.ico" />
+    <link href="~/Contents/common.css" rel="stylesheet" />
+    <!--pgy-->
+    <script src="~/Contents/js/xuanran/pgy.js"></script>
+    <link href="~/Contents/css/Notes/pgy.css" rel="stylesheet" />
+    <!--左下 滚动js-->
+    <script src="~/Contents/js/xuanran/aq_updown.min.js"></script>
+    <script src="~/Contents/js/xuanran/ScrollTo.min.js"></script>
+    <link href="~/Contents/css/xuanran/aq_updown.css" rel="stylesheet" />
+
+    <!--重构 alert-->
+    <link href="~/Contents/js/resetalert/window.css" rel="stylesheet" />
+    <script src="~/Contents/js/resetalert/window.js"></script>
+   
+</head>
+<body>
+    <div id="#wrap" class="Container">
+        <div class="top">
+        </div>
+        <!--主体-->
+        <div class="main" id="aq_main">
+            @RenderBody()
+        </div>
+    </div>
+    <!--右下插件 上下跳转-->
+    <div id="aq_updown">
+        <div id="aq_up"></div>
+        <div id="aq_imain"></div>
+        <div id="aq_down"></div>
+    </div>
+    <!--底部-->
+    <div id="footer" class="bottom">
+        <!--左下蒲公英-->
+        <div class="dandelion">
+            <span class="smalldan"></span>
+            <span class="bigdan"></span>
+        </div>
+        <!--版本号-->
+        <div class="bottom_lab" id="aq_bottom">
+            <label>版本@@ 2018</label>
+        </div>
+    </div>
+</body>
+</html>

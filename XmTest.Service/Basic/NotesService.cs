@@ -12,13 +12,13 @@ using XmTest.Basic.Util;
 using XmTest.Basic.Web;
 namespace XmTest.Service.Basic
 {
-    public class NotesDAL
+    public class NotesService
     {
-        public static NotesDAL Instance
+        public static NotesService Instance
         {
             get
             {
-                return DALFactory<NotesDAL>.Instance;
+                return DALFactory<NotesService>.Instance;
             }
         }
 
@@ -27,12 +27,10 @@ namespace XmTest.Service.Basic
 
         public List<Notes> GetNotes(Page page)
         {
+            page.sortcol = "Id";
             List<Notes> Notes = noteService.FindList(page);
-            var notes1 = noteService.GetPagedList(1, 20, true, x => x.Id, null);
-            Notes.ForEach(x =>
-            {
-                x.Content = x.Content.IsNotNullOrEmpty() && x.Content.Length > 100 ? x.Content.Substring(0, 99) : x.Content + "...";
-            });
+            string str = string.Empty;
+            Notes.ForEach(x => x.Content = x.Content != null ? x.Content.Length > 100 ? x.Content.Substring(0, 99) + "..." : x.Content : "");
             return Notes;
         }
 
@@ -64,7 +62,7 @@ namespace XmTest.Service.Basic
                 return null;
             List<Notes> xcList = noteService.GetList(x => x.ClassifyID == classify.Id && x.UserID == userId);
             xcList.RemoveAll(x => x.Content == null);
-            xcList.ForEach(x => x.Content = x.Content.Length > 100 ? x.Content.Substring(0, 200) + "..." : x.Content + "...");
+            xcList.ForEach(x => x.Content = x.Content != null ? x.Content.Length > 100 ? x.Content.Substring(0, 99) + "..." : x.Content : "");
             return xcList;
         }
 

@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\BaseHelpers.cs" />
+    <Compile Include="Helpers\EnumHepler.cs" />
+    <Compile Include="Helpers\Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\DrawHelpers.cs" />
     <Compile Include="Util\GreedysHelper.cs" />

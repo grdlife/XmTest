@@ -22,7 +22,7 @@ namespace XmTest.Data.Repository
         TEntity GetModel(object keyvalue);
         TEntity GetModel(Expression<Func<TEntity, bool>> whereLambda);
         List<TEntity> GetList(Expression<Func<TEntity, bool>> whereLambda);
-        List<TEntity> GetPagedList<TType>(int pageSize, int pageIndex, bool isAsc, Expression<Func<TEntity, TType>> OrderByLambda, Expression<Func<TEntity, bool>> whereLambda);
+        List<TEntity> GetPagedList<TType>(int pageIndex, int pageSize, bool isAsc, Expression<Func<TEntity, TType>> OrderByLambda, Expression<Func<TEntity, bool>> whereLambda);
 
 
         IQueryable<TEntity> IQueryable();

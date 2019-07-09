@@ -1,0 +1,20 @@
+﻿@model XmTest.Data.Entity.X_Diary
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<link href="~/Contents/css/Notes/Notes.css" rel="stylesheet" />
+<div class="Note">
+    <h4>@Model.Title</h4>
+    <div class="Note_Content">
+        @(new HtmlString(Model.Content))
+    </div>
+    <div class="Note_bottom">
+        <div class="Note_bottom _left">
+            <span> @Model.CreateTime.ToString("yyyy年MM月dd日  HH:mm") </span>
+        </div>
+        <div class="Note_bottom _right">
+            <span></span>
+        </div>
+    </div>
+</div>

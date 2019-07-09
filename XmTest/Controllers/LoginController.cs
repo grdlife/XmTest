@@ -21,9 +21,9 @@ namespace XmTest.Controllers
         private string userLifeCycle = System.Configuration.ConfigurationManager.AppSettings["CurrentUserCache_LifeCycle"];
         public IX_UserRepository useService = new X_UserRepository();
         // GET: /Login/
+
         public ActionResult Index()
         {
-
             var cookie = Request.Cookies[WebContent.UserCookie];
             if(cookie !=null)
             {
@@ -31,25 +31,18 @@ namespace XmTest.Controllers
                 if (result!="error")
                 {
                     if(HttpContext.Session[WebContent.UserSession]==null)
-                    {
                         return View();
-                    }
                     else
-                    {
                         return RedirectToAction("Index", "Home");
-                    }
                 }
                 else
                 {
                     HttpContext.Response.Cookies[WebContent.UserCookie].Expires = DateTime.Now.AddDays(-1);//清除本地cookie
                     return View();
                 }
-
             }
             else
-            {
-                 return View();
-            }
+                return View();
         }
         public ActionResult Index2()
         {
@@ -60,54 +53,41 @@ namespace XmTest.Controllers
                 if (result != "error")
                 {
                     if (HttpContext.Session[WebContent.UserSession] == null)
-                    {
                         return View();
-                    }
                     else
-                    {
                         return RedirectToAction("Index", "Home");
-                    }
                 }
                 else
                 {
                     HttpContext.Response.Cookies[WebContent.UserCookie].Expires = DateTime.Now.AddDays(-1);//清除本地cookie
                     return View();
                 }
-
             }
             else
-            {
                 return View();
-            }
         }
         [HttpPost]
         public ActionResult Login(string form)
         {
-            List<JObject> obj = JsonConvert.DeserializeObject<List<JObject>>(form);
-
-            string Name = obj[0]["value"].ToString();
-            string pwd = obj[1]["value"].ToString();
+            JObject obj =JsonConvert.DeserializeObject<JObject>(form);
+            string name = obj["name"].ToString();
+            string pwd = obj["password"].ToString();
             string msg = string.Empty;
             int loginId;
-            if (CheckUser(Name, pwd, out msg,out loginId))
+            if (LoginValidate(name, pwd, out msg,out loginId))
             {
-                //1、遍历所有应用服务器cache
                 string token = "";
-                //将用户登录信息保存在cache中，用于单点登录
-                token = Name + "_" + Guid.NewGuid().ToString().Substring(4, 12) + DateTime.Now.Millisecond;
+                token = name + "_" + Guid.NewGuid().ToString().Substring(4, 12) + DateTime.Now.Millisecond;  //将用户登录信息保存在cache中，用于单点登录
                 token = EncodingHelper.EncryptMD5(token);
-                CacheHelper.Insert(token, Name, Convert.ToInt32(userLifeCycle));//单点登录SSO服务器端cache添加
-
+                CacheHelper.Insert(token, name, Convert.ToInt32(userLifeCycle));//单点登录SSO服务器端cache添加
                 string redirecturl = "http://localhost:2979/Home/Index";
-                CreateCookie(token, loginId, Name, redirecturl);
+                CreateCookie(token, loginId, name, redirecturl);
                 return Json(new { code = 1, msg = msg });
-                //return RedirectToAction("Index", "Login");
             }
             else
             {
                 ViewBag.user = "";
                 return Json(new { code = -1, msg = msg });
-                //return RedirectToAction("Index", "Login");
             }
         }
       
@@ -124,7 +104,7 @@ namespace XmTest.Controllers
             return RedirectToAction("Index", "Login"); 
         }
 
-        public bool CheckUser(string Name, string pwd, out string msg, out int loginId)
+        public bool LoginValidate(string Name, string pwd, out string msg, out int loginId)
         {
             try
             {
@@ -157,6 +137,7 @@ namespace XmTest.Controllers
             }
             
         }
+
         public string IsLogined(string token)
         {
             var obj = CacheHelper.Get(token);

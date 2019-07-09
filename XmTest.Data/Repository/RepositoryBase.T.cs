@@ -76,7 +76,7 @@ namespace XmTest.Data.Repository
             return _dbSet.Where(whereLambda).ToList();
         }
 
-        public List<TEntity> GetPagedList<TType>(int pageSize, int pageIndex, bool isAsc, Expression<Func<TEntity, TType>> OrderByLambda, Expression<Func<TEntity, bool>> whereLambda)
+        public List<TEntity> GetPagedList<TType>(int pageIndex, int pageSize, bool isAsc, Expression<Func<TEntity, TType>> OrderByLambda, Expression<Func<TEntity, bool>> whereLambda)
         {
             var result = _dbSet.Where(whereLambda);
             result = isAsc ? result.OrderBy(OrderByLambda) : result.OrderByDescending(OrderByLambda);

@@ -21,7 +21,7 @@ namespace XmTest.Utils
         /// <returns></returns>
         public static SelectList GetWebItems(string key = "")
         {
-            Dictionary<string, string> dic = NotesDAL.Instance.GetClassifyfield(BaseWebController.GetLoginId());
+            Dictionary<string, string> dic = NotesService.Instance.GetClassifyfield(BaseWebController.GetLoginId());
             SelectList slist = new SelectList(dic, "Key", "Value", key);
             return slist;
         }

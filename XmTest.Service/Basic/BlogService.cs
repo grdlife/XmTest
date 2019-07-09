@@ -12,7 +12,7 @@ namespace XmTest.Service.Basic
      *Diary     日记
      *Setting   个人设置
      */
-    public class BlogDAL
+    public class BlogService
     {
     }
 }
