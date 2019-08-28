@@ -1,0 +1,14 @@
+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-2019-08-27 10:42:25~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+       title:/Home/
+       msg:
+           System.ObjectDisposedException: 此 ObjectContext 实例已释放，不可再用于需要连接的操作。
+   在 System.Data.Entity.Core.Objects.ObjectContext.ReleaseConnection()
+   在 System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.Finally()
+   在 System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.Dispose()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.Dispose()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 XmTest.Data.Repository.RepositoryBase`1.FindList(Page page) 位置 e:\xin文档\Demo\XmTest\XmTest.Data\Repository\RepositoryBase.T.cs:行号 135
+   在 XmTest.Service.Basic.NotesService.GetNotes(Page page) 位置 e:\xin文档\Demo\XmTest\XmTest.Service\Basic\NotesService.cs:行号 31
+   在 XmTest.Controllers.HomeController.Index(Page page) 位置 e:\xin文档\Demo\XmTest\XmTest\Controllers\HomeController.cs:行号 23
+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~ end

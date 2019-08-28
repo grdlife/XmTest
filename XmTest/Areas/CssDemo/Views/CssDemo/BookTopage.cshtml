@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "BookTopage";
+}
+
+<h2>BookTopage</h2>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body, html {
+        /*防止抖动*/
+        overflow: hidden;
+    }
+
+    #box {
+        width: 700px;
+        height: 400px;
+        background: url("img/0.jpg") no-repeat;
+        margin: 100px auto;
+        position: relative;
+    }
+
+        #box .page {
+            /*在box的右半部分*/
+            width: 50%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            position: absolute;
+            /*开启3d模式*/
+            transform-style: preserve-3d;
+            /*设定旋转中心*/
+            transform-origin: left center;
+            transition: 1s all ease;
+            z-index: 2;
+            /*初始化*/
+            transform: perspective(800px) rotateY(0deg);
+        }
+
+            #box .page div {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            #box .page .front {
+                /*显示图片的右半部分*/
+                background: url("img/0.jpg") right top no-repeat;
+                /*不显示背面*/
+                backface-visibility: hidden;
+                /*层级比背面高*/
+                z-index: 2;
+            }
+
+            #box .page .back {
+                background: url("img/1.jpg") left top no-repeat;
+                z-index: 1;
+                transform: scale(-1,1);
+            }
+
+        #box .page2 {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: url("img/1.jpg") right top no-repeat;
+            z-index: 1;
+        }
+</style>
+<div id="box">
+    <div class="page">
+        <div class="front"></div>
+        <div class="back"></div>
+    </div>
+    <div class="page2"></div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var oBox = document.getElementById('box');
+        var oPage = document.querySelector('.page');
+        var oPage2 = document.querySelector('.page2');
+        var oFront = document.querySelector('.front');
+        var oBack = document.querySelector('.back');
+        var iNow = 0;
+        var bReady = true;
+        oBox.onclick = function () {
+            if (bReady == false) {
+                return;
+            }
+            bReady = false;
+            iNow++;
+            oPage.style.transition = '1s all ease';
+            oPage.style.WebkitTransform = 'perspective(800px) rotateY(-180deg)';
+        };
+        oPage.addEventListener('transitionend', function () {
+            //1.瞬间拉回
+            oPage.style.transition = 'none';
+            oPage.style.WebkitTransform = 'perspective(800px) rotateY(0deg)';
+            //2.换图
+            oBox.style.background = 'url("img/' + (iNow % 3) + '.jpg") no-repeat';
+            oFront.style.background = 'url("img/' + (iNow % 3) + '.jpg") right top no-repeat';
+            oBack.style.background = 'url("img/' + ((iNow + 1) % 3) + '.jpg") left top no-repeat';
+            oPage2.style.background = 'url("img/' + ((iNow + 1) % 3) + '.jpg") right top no-repeat';
+            bReady = true;
+        }, false);
+    }, false);
+</script>

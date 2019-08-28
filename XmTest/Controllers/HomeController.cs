@@ -16,6 +16,7 @@ namespace XmTest.Controllers
 
         public ActionResult Index(Page page)
         {
+
             List<Notes> notes = new List<Notes>();
             try
             {
@@ -24,7 +25,7 @@ namespace XmTest.Controllers
             }
             catch (Exception ex)
             {
-                Log.Write(ex);
+                LogHelper.Write(ex, "/Home/");
                 return View(notes);
             }
 
@@ -52,6 +53,10 @@ namespace XmTest.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 通用错误页
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Error()
         {
             return View();

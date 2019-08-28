@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "复选、单选按钮样式优化";
+}
+@*相关的单选复选按钮*@
+<link href="~/Contents/css/box.css" rel="stylesheet" />
+<div id="main">
+    <div class="demo">
+        <div class="col">
+            <h4>Checkbox(复选按钮)</h4>
+
+            <div class="opt">
+                <input class="magic-checkbox" type="checkbox" name="layout" id="c1">
+                <label for="c1">Normal</label>
+            </div>
+            <div class="opt">
+                <input class="magic-checkbox" type="checkbox" name="layout" id="c2" checked>
+                <label for="c2">Checked</label>
+            </div>
+            <div class="opt">
+                <input class="magic-checkbox" type="checkbox" name="layout" id="c3" value="option2" disabled>
+                <label for="c3" style="color:#ccc">Disabled</label>
+            </div>
+            <div class="opt">
+                <input class="magic-checkbox" type="checkbox" name="layout" id="c4" checked disabled>
+                <label for="c4" style="color:#ccc">Checked && Disabled</label>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>Radio(单选按钮)</h4>
+            <div class="opt">
+                <input class="magic-radio" type="radio" name="radio" id="r1" value="option1">
+                <label for="r1">Normal</label>
+            </div>
+            <div class="opt">
+                <input class="magic-radio" type="radio" name="radio" id="r2" value="option2" checked>
+                <label for="r2">Checked</label>
+            </div>
+            <div class="opt">
+                <input class="magic-radio" type="radio" name="radio" id="r3" value="option3" disabled>
+                <label for="r3" style="color:#ccc">禁用</label>
+            </div>
+            <div class="opt">
+                <input class="magic-radio" type="radio" id="r4" value="option4" checked disabled>
+                <label for="r4" style="color:#ccc">Checked && Disabled</label>
+            </div>
+        </div>
+    </div>
+
+</div>

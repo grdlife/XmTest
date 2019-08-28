@@ -5,9 +5,10 @@ body {
     max-width: 65em;
     font-family: Arial; /*微软雅黑，"Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;*/
     line-height: 1.75;
-    padding: 4em 1em;
+    padding: 2.5em 1em;
     color: #555;
-    font-size:14px;
+    font-size: 13px;
+    height: 100%;
     /*color:#566b78;*/
 }
 
@@ -113,11 +114,13 @@ header {
 .align_rg {
     text-align: right;
 }
-.align{
-    text-align:center;
+
+.align {
+    text-align: center;
 }
-.indent{
-    text-indent:25px;
+
+.indent {
+    text-indent: 25px;
 }
 
 
@@ -161,13 +164,31 @@ a:link, a:visited, a:hover, a:active {
 
 /*Note*/
 .note {
-    padding: 15px 10px 5px 10px;
-    margin:4px;
+    padding: 15px 10px 15px 10px;
+    margin: 4px;
     line-height: 25px;
     display: block;
     word-break: break-all;
     word-wrap: break-word;
-    background: #fff;
+    /*background: #fff;*/
     /*border-top:1px dashed #808080;*/
-    border-radius:2px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    text-indent: 2em;
+    /*border-bottom: 5px hidden #555;*/
 }
+
+.bg {
+    background-color: rgba(196, 194, 194, 0.22);
+}
+
+.white {
+    background-color: #fff;
+}
+
+
+
+
+
+
+

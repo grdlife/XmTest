@@ -1,0 +1,195 @@
+﻿@{
+    ViewBag.Title = "销售中心";
+}
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        line-height: 1.5;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .chart_main {
+        display: inline;
+        width: 100%;
+        height: 100%;
+    }
+
+    .chart_block {
+        display: inline-block;
+        width: calc(50% - 20px);
+        height: calc(50% - 20px);
+        background: rgba(255,255,255,1);
+        float: left;
+        padding: 10px;
+    }
+
+    .chart_content {
+        display: inline-block;
+        width: 100%;
+        height: 50%;
+        background: #ffffff;
+    }
+
+    #block_ul {
+        width: 100%;
+    }
+
+        #block_ul li {
+            width: 50%;
+            height: 50%;
+            float: left;
+        }
+
+    .block_li {
+        margin-left: 20px;
+        display: inline;
+    }
+
+        .block_li h5 {
+            padding-top: 5px;
+        }
+
+    .block_li_left {
+        width: calc(50% - 20px);
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .block_li_right {
+        width: calc(50% - 20px);
+        display: inline-block;
+    }
+
+    .block_li .Orange {
+        width: 12px;
+        height: 12px;
+        background: rgba(255,101,25,1);
+        opacity: 1;
+        display: inline-block;
+    }
+
+    .block_li .Bluish {
+        width: 12px;
+        height: 12px;
+        background: rgba(110,108,212,1);
+        opacity: 1;
+        display: inline-block;
+    }
+</style>
+<body>
+    <div style="width:100%;height:100%;">
+        <div class="chart_main">
+            <div class="chart_block">
+                <ul id="block_ul">
+                    <li>
+                        <div class="block_li">
+                            <h5>注册客户数</h5>
+                            <div class="Orange" style="width:80px;display:inline-block;"></div><div class="Bluish" style="width:120px; display: inline-block;"></div>
+
+                            <div class="block_li_left">
+                                <div class="Orange"></div><label>12月</label>
+                                <br />
+                                <label>1000</label>
+                            </div>
+                            <div class="block_li_right">
+                                <div class="Bluish"></div><label>2019</label>
+                                <br />
+                                <label>1000</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block_li">
+                            <h5>转化客户数</h5>
+                            <div class="Orange" style="width:60px;display:inline-block;"></div><div class="Bluish" style="width:140px; display: inline-block;"></div>
+                            <div class="block_li_left">
+                                <div class="Orange"></div><label>12月</label>
+                                <br />
+                                <label>1000</label>
+                            </div>
+                            <div class="block_li_right">
+                                <div class="Bluish"></div><label>2019</label>
+                                <br />
+                                <label>1000</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block_li">
+                            <h5>销售额</h5>
+                            <div class="Orange" style="width:40px;display:inline-block;"></div><div class="Bluish" style="width:160px; display: inline-block;"></div>
+                            <div class="block_li_left">
+                                <div class="Orange"></div><label>12月</label>
+                                <br />
+                                <label>1000</label>
+                            </div>
+                            <div class="block_li_right">
+                                <div class="Bluish"></div><label>2019</label>
+                                <br />
+                                <label>1000</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block_li">
+                            <h5>白条已授信额度</h5>
+                            <div class="Orange" style="width:20px;display:inline-block;"></div><div class="Bluish" style="width:180px; display: inline-block;"></div>
+                            <div class="block_li_left">
+                                <div class="Orange"></div><label>12月</label>
+                                <br />
+                                <label>1000</label>
+                            </div>
+                            <div class="block_li_right">
+                                <div class="Bluish"></div><label>2019</label>
+                                <br />
+                                <label>1000</label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="chart_block">
+                <div class="chart_content">
+                    <div>今日待办事项</div>
+                    <hr />
+                    <div style="display:inline-block;margin-top:10px;line-height:30px;">
+                        <p>去小角色浇洒点击数量卡带机鞍山道街绝对是; @DateTime.Now.ToString("yyyy-MM-dd")</p>
+                        <p>去小角色浇洒点击数量卡; @DateTime.Now.ToString("yyyy-MM-dd")</p>
+                        <p>去小角色浇洒点击数量卡; @DateTime.Now.ToString("yyyy-MM-dd")</p>
+                        <p>去小角色浇洒点击数量卡; @DateTime.Now.ToString("yyyy-MM-dd")</p>
+                    </div>
+                </div>
+                <div class="chart_content">
+                    <div>无意向客户名单</div>
+                    <hr />
+                    <div style="display: inline-block; margin-top: 10px; display: inline;line-height:30px;">
+                       <div style="width:48%;display:inline-block;">
+                           <p>浙江某公司 张三  13266623</p>
+                           <p>浙江某公司 张三  13266623</p>
+                           <p>浙江某公司 张三  13266623</p>
+                       </div>
+                        <div style="width: 48%; display: inline-block; ">
+                            <p>浙江某公司 张三  13266623</p>
+                            <p>浙江某公司 张三  13266623</p>
+                            <p>浙江某公司 张三  13266623</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart_block">
+                <div>重要类型比例</div>
+            </div>
+            <div class="chart_block">
+                <div>近6个月交易额</div>
+            </div>
+        </div>
+    </div>
+</body>
+

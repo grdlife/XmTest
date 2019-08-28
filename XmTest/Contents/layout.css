@@ -1,5 +1,7 @@
 ﻿body {
     margin: 0 auto;
+    background-color: rgba(196, 194, 194, 0.22);
+    min-height: 101%;
 }
 
 html, body, #wrap {
@@ -11,9 +13,37 @@ html, body, #wrap {
         min-height: 100%;
     }
 
-#main {
-    padding-bottom: 100px;
+/*左右布局*/
+.aq_home {
+    display: inline-block;
+    width:1150px;
+    margin:0 auto;
 }
+
+.aq_main {
+    padding-bottom: 100px;
+    width: 100%;
+    height: calc(100%- 100px);
+}
+
+.aq_pendant {
+    display: inline-block;
+    width: calc(100% - 950px);
+    float: right;
+}
+
+/*.layout_admin {
+    font-size: 16px;
+    position: absolute;
+    top: 0px;
+    right: 80px;
+    margin: 0px;
+    padding: 10px;
+    border: 0px;
+    width: 190px;
+    voice-family: inherit;
+    background: #fff;
+}*/
 /* 必须使用和footer相同的高度 */
 #footer {
     position: relative;
@@ -22,48 +52,72 @@ html, body, #wrap {
     clear: both;
 }
 
-.container {
+.aq_container {
+    display: inline-block;
     margin: 0 auto;
-    width: auto;
-    height: auto;
-    min-height: 100%;
+    width: 68%;
+    height: 100%;
+    background: #fff;
     padding-bottom: 100px;
+    box-shadow: 0 2px 6px rgba(100,100,100,.3); /*盒子阴影*/
 }
 
-.top {
-    height: 50px;
+.aq_nav {
     width: auto;
+    padding-top: 10px;
+    background: #fff;
 }
 
-    .top ul {
+    .aq_nav img {
+        vertical-align: top;
+    }
+
+    .aq_nav label {
+        line-height: 100px;
+        /*-webkit-writing-mode: vertical-rl;*/ /*竖直排版*/
+        padding: 5px 0;
+        letter-spacing: 10px;
+        font-size: 14px;
+    }
+
+.aq_top {
+    height: 40px;
+    width: auto;
+    margin-top: 20px;
+    background: #fff;
+    border-bottom: 1px solid #ededed;
+    border-top: 1px solid #ededed;
+    padding-top: 3px;
+}
+
+    .aq_top ul {
         width: 100%;
         padding: 0;
         white-space: normal;
     }
 
-        .top ul li {
+        .aq_top ul li {
             display: inline-block;
             letter-spacing: normal;
-            padding: 3px 29px 3px 29px;
-            font-size: 20px;
+            padding: 3px 19px 3px 19px;
+            font-size: 15px;
             list-style: none;
         }
 
-.top ul li:hover {
-    background-color: rgba(135, 167, 241, 0.56);
-}
+            .aq_top ul li:hover {
+                background-color: rgba(135, 167, 241, 0.56);
+            }
 
-.top li a {
-    color: #000000;
-}
-    .top li a:hover {
-        /*background-color: rgba(135, 167, 241, 0.56);*/
-        color: #0094ff;
+    .aq_top li a {
+        color: #000000;
     }
 
-.main {
-    width: 100%;
-}
+        .aq_top li a:hover {
+            /*background-color: rgba(135, 167, 241, 0.56);*/
+            color: #0094ff;
+        }
+
+
 
 .bottom {
     position: relative;

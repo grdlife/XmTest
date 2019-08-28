@@ -22,15 +22,18 @@ namespace XmTest.Controllers
         public IX_UserRepository useService = new X_UserRepository();
         // GET: /Login/
 
+       
+
         public ActionResult Index()
         {
+            
             var cookie = Request.Cookies[WebContent.UserCookie];
-            if(cookie !=null)
+            if (cookie != null)
             {
                 string result = RoleHelper.CheckLogined(cookie.Value);
-                if (result!="error")
+                if (result != "error")
                 {
-                    if(HttpContext.Session[WebContent.UserSession]==null)
+                    if (HttpContext.Session[WebContent.UserSession] == null)
                         return View();
                     else
                         return RedirectToAction("Index", "Home");
@@ -69,12 +72,12 @@ namespace XmTest.Controllers
         [HttpPost]
         public ActionResult Login(string form)
         {
-            JObject obj =JsonConvert.DeserializeObject<JObject>(form);
+            JObject obj = JsonConvert.DeserializeObject<JObject>(form);
             string name = obj["name"].ToString();
             string pwd = obj["password"].ToString();
             string msg = string.Empty;
             int loginId;
-            if (LoginValidate(name, pwd, out msg,out loginId))
+            if (LoginValidate(name, pwd, out msg, out loginId))
             {
                 string token = "";
                 token = name + "_" + Guid.NewGuid().ToString().Substring(4, 12) + DateTime.Now.Millisecond;  //将用户登录信息保存在cache中，用于单点登录
@@ -90,8 +93,8 @@ namespace XmTest.Controllers
                 return Json(new { code = -1, msg = msg });
             }
         }
-      
-        public  ActionResult Loginout()
+
+        public ActionResult Loginout()
         {
             var token = "";
             if (Request.Cookies[WebContent.UserCookie] != null)
@@ -101,7 +104,7 @@ namespace XmTest.Controllers
                 CacheHelper.Remove(token); //跳转单点登录服务器清除单点用户cache
             }
             Session.Remove(WebContent.UserSession);//清除应用服务器Session
-            return RedirectToAction("Index", "Login"); 
+            return RedirectToAction("Index", "Login");
         }
 
         public bool LoginValidate(string Name, string pwd, out string msg, out int loginId)
@@ -135,7 +138,7 @@ namespace XmTest.Controllers
                 msg = ex.Message;
                 return false;
             }
-            
+
         }
 
         public string IsLogined(string token)

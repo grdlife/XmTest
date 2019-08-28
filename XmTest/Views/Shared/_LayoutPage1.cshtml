@@ -30,89 +30,104 @@
     <!--重构 alert-->
     <link href="~/Contents/js/resetalert/window.css" rel="stylesheet" />
     <script src="~/Contents/js/resetalert/window.js"></script>
-    <style>
-        .layout_admin {
-            font-size: 16px;
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            margin: 0px;
-            padding: 10px;
-            border: 0px;
-            background: #FFF;
-            width: 190px;
-            voice-family: inherit;
-        }
-        .container_rg{
 
+    <!--日历插件-->
+    <link href="~/Contents/js/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" />
+    <script src="~/Contents/js/datetimepicker/jquery.js"></script>
+    <script src="~/Contents/js/datetimepicker/jquery.datetimepicker.js"></script>
+    <style>
+        .xdsoft_datetimepicker.xdsoft_inline {
+            background: url(/Contents/images/login/bg101.jpg) no-repeat;
         }
     </style>
 </head>
 <body>
-    <div id="#wrap" class="container">
-        <div class="top">
-            <!--头部-->
-            <ul>
-                <li><a href="/Home/Index">园</a></li>
-                <li><a href="/Blog/Blog/BlogCenter">bk</a></li>
-                <li><a href="/Diary/Diary/Index">rj</a></li>
-                <li><a href="/Diary/Diary/Index">管理</a></li>
-                <li><a href="/Category/Category/Index">分类</a></li>
-                @*<li><a href="/Product/Product/Index">关于</a></li>*@
-            </ul>
+    <div class="aq_home">
+        <div id="#wrap" class="aq_container">
+            <div class="aq_nav">
+                <img src="/Contents/images/logo/axq3.png" />
+                <label>
+                    @(string.IsNullOrWhiteSpace(ViewBag.user) ? "夏秋" : ViewBag.user)的博客
+                </label>
+            </div>
+           
+            <!--头部 top-->
+            <div class="aq_top">
+                <ul style="font-size:small;">
+                    <li><a href="/Home/Index">首页</a></li>
+                    <li><a href="/Blog/Blog/BlogCenter">手札</a></li>
+                    <li><a href="/Diary/Diary/Index">日记</a></li>
+                    <li><a href="/Diary/Setting/BlogSetting/">管理</a></li>
+                    <li><a href="/Category/Category/Index">分类</a></li>
+                    @*<li><a href="/Product/Product/Index">关于</a></li>*@
+                </ul>
+            </div>
+            <!--头部 end-->
+            <!--主体 main-->
+            <section class="aq_main" id="aq_main">
+                @RenderBody()
+            </section>
+            @*<div class="aq_main" id="aq_main">
+
+                </div>*@
+            <!--主体-->
         </div>
-        <div class="layout_admin">
-            @{
-                var random = new Random();
-                var num = random.Next(0, 2);
-            }
-            @if (string.IsNullOrWhiteSpace(ViewBag.user))
-            {
-                if (num > 0)
+        <div class="aq_pendant">
+            @*@{
+                    var random = new Random();
+                    var num = random.Next(0, 2);
+                }
+
+                @if (string.IsNullOrWhiteSpace(ViewBag.user))
                 {
-                    <strong><a href="/Login/Index" va="@num">登录</a></strong>
+                    if (num > 0)
+                    {
+                        <strong><a href="/Login/Index" va="@num">登录</a></strong>
+                    }
+                    else
+                    {
+                        <strong><a href="/Login/Index2" va="@num">登录</a></strong>
+                    }
+                    <strong>
+                        |  <a>注册</a>
+                    </strong>
                 }
                 else
                 {
-                    <strong><a href="/Login/Index2" va="@num">登录</a></strong>
-                }
-                <strong>
-                    |  <a>注册</a>
-                </strong>
-            }
-            else
-            {
-                <strong>
-                    @ViewBag.user,欢迎你！|<a href="/Login/Loginout">注销</a>
-                </strong>
-            }
-
-        </div>
-        <!--主体-->
-        <div class="main" id="aq_main">
-            @RenderBody()
+                    <strong>
+                        @ViewBag.user,欢迎你！|<a href="/Login/Loginout">注销</a>
+                    </strong>
+                }*@
+            <table id="datetimepicker"></table>
         </div>
     </div>
-    <!--右下插件 上下跳转-->
-    @*<div id="aq_updown">
+
+    <!--右下插件 上下跳转 aq_updown-->
+    <div id="aq_updown">
         <div id="aq_up"></div>
         <div id="aq_imain"></div>
         <div id="aq_down"></div>
-    </div>*@
-    <!--底部-->
+    </div>
+    <!-----右下插件 end----->
+    <!--底部 footer-->
     <div id="footer" class="bottom">
         <!--左下蒲公英-->
-        @*<div class="dandelion" title="管理">
+        <div class="dandelion" title="管理">
             <a href="/Blog/Blog/BlogCenter">
                 <span class="smalldan"></span>
                 <span class="bigdan"></span>
             </a>
-        </div>*@
+        </div>
         <!--版本号-->
         <div class="bottom_lab" id="aq_bottom">
             <label>版本@@ 2018</label>
         </div>
     </div>
+    <!----底部 end timepicker: false, format: 'Y-m-d'---->
+    @*<script>
+            $("#datetimepicker").datetimepicker({ inline: true, timepicker: false, format: 'Y-m-d' });
+            $.datetimepicker.setLocale('ch');
+        </script>*@
 </body>
 </html>
 <!--版权声明：部分素材源于网上,如有侵权，请告知！-->
